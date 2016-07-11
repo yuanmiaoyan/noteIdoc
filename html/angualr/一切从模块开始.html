@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>note</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                note
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li class="active"><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li><a href="../../html/node/node 1.html">node 1</a></li></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p>15.//&#x6211;&#x4EEC;&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x539F;&#x6709;&#x7684;&#x6570;&#x636E; &#x6570;&#x636E;&#x548C;&#x89C6;&#x56FE;&#x662F;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x8D77;&#x7684;&#x6570;&#x636E;&#x53D8;&#x4E86;&#x4EE5;&#x540E;&#x663E;&#x793A;&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x53D8;&#x4E86;&#xFF0C;&#x4E0D;&#x8981;&#x6539;&#x53D8;&#x539F;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x6539;&#x53D8;&#x7528;&#x8FC7;&#x6EE4;&#x5668;
+//1.&#x8D27;&#x5E01;&#x8FC7;&#x6EE4;&#x5668; &#xFF08;&#x5728;&#x8981;&#x8FC7;&#x6EE4;&#x7684;&#x6570;&#x636E;&#x540E;&#x9762;&#x52A0;|&#xFF09;
+//currency:&apos;&#xFFE1;&apos; &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#x8868;&#x793A;&#x94B1;&#x7684;&#x79CD;&#x7C7B;
+//2.&#x5927;&#x5C0F;&#x5199;&#x8FC7;&#x6EE4;&#x5668;
+//| uppercase | lowercase
+//3.limitTo&#x65F6;&#x95F4;&#x6233; (&#x7531;13&#x4F4D;&#x7EC4;&#x6210;)&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x5E8F;&#x5217;&#xFF0C;&#x552F;&#x4E00;&#x5730;&#x6807;&#x8BC6;&#x67D0;&#x4E00;&#x523B;&#x7684;&#x65F6;&#x95F4;&#x3002;
+//&#x622A;&#x53D6;&#x591A;&#x5C11;&#x4F4D;
+//4.number &#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;&#x8868;&#x793A;
+//&#x53C2;&#x6570;&#x662F;&#x4FDD;&#x7559;&#x51E0;&#x4F4D;&#x5C0F;&#x6570;&#x5E76;&#x4E14;&#x56DB;&#x820D;&#x4E94;&#x5165;
+//5.json
+//pre&#x662F;&#x5C06;&#x539F;&#x672C;&#x7684;&#x5185;&#x5BB9;&#x4E0D;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x6253;&#x5370;&#x5230;&#x9875;&#x9762;&#x4E0A;
+//6.&#x65E5;&#x671F;&#x8FC7;&#x6EE4;&#x5668;
+//&#x540E;&#x9762;&#x662F;&#x683C;&#x5F0F; data:&apos;yyyy-MM-dd hh:mm:ss&apos;</p>
+<ol>
+<li>orderBy:&#x2018;chinese&#x2019;:flag
+//&#x53C2;&#x6570;1.&#x6839;&#x636E;&#x5177;&#x4F53;&#x7684;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;
+//&#x53C2;&#x6570;2.true&#x4E3A;&#x5012;&#x5E8F; false&#x4E3A;&#x5347;&#x5E8F;
+17.
+//filter&#x7528;&#x6CD5;
+//filter:query &#x6211;&#x4EEC;&#x8981;&#x67E5;&#x8BE2;&#x7684;&#x503C; &#xFF0C;&#x662F;&#x5728;&#x6240;&#x6709;&#x6570;&#x636E;&#x4E2D;&#x67E5;&#x8BE2;
+//&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x67E5;&#x8BE2; filter:{&apos;&#x8981;&#x641C;&#x7D22;&#x7684;&#x5B57;&#x6BB5;&apos;:&#x67E5;&#x8BE2;&#x7684;&#x503C;}
+//input&#x4E0A;&#x9762;&#x7684;
+//ng-model-options:{updateOn:&apos;blur&apos;}
+//ng-model-options:{debounce:2000}
+//&#x5EF6;&#x8FDF;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x6A21;&#x578B;&#x7684;&#x503C;</li>
+<li>angular.bind(obj,fn);
+19.&#x5728;&#x6211;&#x4EEC;&#x5F15;&#x5165;angular&#x540E;&#xFF0C;angular&#x4F1A;&#x81EA;&#x52A8;&#x7ED9;&#x6211;&#x4EEC;&#x690D;&#x5165;&#x4E00;&#x4E2A;angular&#x5BF9;&#x8C61;&#xFF0C;angular.element&#x5C06;&#x539F;&#x751F;&#x5185;&#x5BB9;&#x53D8;&#x6210;jq&#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x5355;&#x4F4D;&#x3002;
+1)angular.extend(obj3,obj2,obj1)   extend&#x7EE7;&#x627F;&#x65B9;&#x6CD5;
+2)angular.fromJson&amp;angular.toJson
+JSON.parse      JSON.stringify
+4)    angular.copy &#x7EAF;&#x62F7;&#x8D1D;&#xFF0C;&#x8986;&#x76D6;&#xFF08;&#x6D45;&#x62F7;&#x8D1D;&#xFF09;
+5)    angular.forEach(param1,param2,param3);
+param1&#xFF1A;&#x6570;&#x7EC4;
+param2&#xFF1A;&#x51FD;&#x6570;
+param3&#xFF1A;&#x5F53;&#x524D;this&#x6307;&#x5411;
+6)    angular.bind(param1,param2)
+param1&#xFF1A;this&#x6307;&#x5411;
+param2&#xFF1A;&#x51FD;&#x6570;</li>
+<li>&#x4E00;&#x8D77;&#x4ECE;&#x6A21;&#x5757;&#x5F00;&#x59CB;&#xFF0C;ng-app&#x540E;&#x9762;&#x8DDF;&#x7684;&#x662F;&#x6A21;&#x5757;&#x7684;&#x540D;&#x5B57;
+&#x7B80;&#x5386;&#x4E00;&#x4E2A;&#x6A21;&#x5757;
+angular.module(&#x201C;param1&#x201D;,param2)
+param1&#xFF1A;&#x6A21;&#x5757;&#x540D;&#x79F0;
+param2&#xFF1A;&#x6A21;&#x5757;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7684;&#x6A21;&#x5757;&#x3002;
+param2&#x4E0D;&#x5199;&#x8868;&#x793A;&#x83B7;&#x53D6;
+&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;ng-app&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#x5E76;&#x5B58;&#xFF0C;&#x9700;&#x8981;&#x7528;bootstrap&#x542F;&#x52A8;&#xFF0C;&#x540E;&#x9762;&#x6709;&#x8BE6;&#x89E3;
+21.ng-controller&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x63A7;&#x5236;&#x5668;&#x7684;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x63A7;&#x5236;&#x6570;&#x636E;
+&#x901A;&#x8FC7;&#x6A21;&#x5757;&#x53BB;&#x521B;&#x5EFA;&#x63A7;&#x5236;&#x5668;&#xFF0C;
+app.controller(param1,param2)
+param1:&#x63A7;&#x5236;&#x5668;&#x7684;&#x540D;&#x5B57;
+param2&#xFF1A;&#x51FD;&#x6570;
+&#x4E00;&#x822C;&#x6709;&#x63A7;&#x5236;&#x5668;&#xFF0C;&#x5C31;&#x4F1A;&#x6709;$scope&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x53C2;,$scope&#x5BF9;&#x8C61;&#x662F;angular&#x5E2E;&#x6211;&#x4EEC;&#x6CE8;&#x5165;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6211;&#x4EEC;&#x662F;&#x4E0D;&#x80FD;&#x66F4;&#x6539;&#x7684;&#xFF0C;$scope&#x4E0A;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x53D8;&#x91CF;&#x4E5F;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x65B9;&#x6CD5;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x521D;&#x59CB;&#x5316;&#x3002;
+22.$scope MVVM=Model View viewModel=$scope&#x3002;
+//&#x7B2C;&#x4E8C;&#x5929; 2016.7.7
+1.controller&#x6570;&#x7EC4;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5728;&#x538B;&#x7F29;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;$scope
+egg:app.controller(&#x2018;ctrl&#x2019;,[&#x2018;$scope&#x2019;,&#x2019;$rootScope&#x2019;,function(a,b){a.name=2;b.age=22;}])
+$scope&#x548C;a&#x5BF9;&#x5E94;&#xFF0C;$rootScope&#x548C;b&#x5BF9;&#x5E94;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x538B;&#x7F29;&#x662F;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x4F1A;&#x88AB;&#x538B;&#x7F29;
+2.&#x5982;&#x679C;&#x63A7;&#x5236;&#x5668;&#x5D4C;&#x5957;&#xFF0C;&#x4F1A;&#x6709;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5B50;&#x627F;&#x7236;&#x4E1A;&#xFF0C;&#x653E;&#x5F03;&#x5B50;&#x7684;
+3.app.run([&#x2018;$rootScope&#x2019;,function($rootScope&#x2019;){ $rootScope&#x2019;.name=100}]);
+4.&#x6BCF;&#x5F53;input&#x503C;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x76D1;&#x542C;&#x4ED6;&#x7684;&#x65B0;&#x503C;&#x548C;&#x65E7;&#x503C;&#xFF0C;
+$scope.$watch(param1,param2)
+&#x63CF;&#x8FF0;&#xFF1A;&#x76D1;&#x542C;&#x6A21;&#x578B;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;
+param1&#xFF1A;&#x6A21;&#x578B;&#x7684;&#x540D;&#x5B57;
+param2&#xFF1A;&#x51FD;&#x6570;&#xFF0C;function(newVal,oldVal){},</li>
+<li>$apply&#x5237;&#x65B0;&#x89C6;&#x56FE; 
+angular&#x81EA;&#x5E26;&#x7684;&#x6307;&#x4EE4;&#x4F1A;&#x5237;&#x65B0;&#x89C6;&#x56FE;
+&#x4F8B;&#x5982;&#xFF1A;$timeout,$interval&#x5B9A;&#x65F6;&#x5668;
+&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;$interval.cancel(timer);
+7&#xFF0E;&#x4E00;&#x4E9B;&#x4E8B;&#x4EF6;
+$scope.change==&gt;ng-change
+$scope.copy==&gt;ng-copy
+$scope.cut==&gt;ng-cut
+$scope.paste==&gt;ng-paste
+8.&#x63A7;&#x5236;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E9B;&#x4EA4;&#x4E92;
+&#x63A7;&#x5236;&#x5668;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x5F0F;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x76D1;&#x542C;&#x7684;
+1)$emit&#x53D1;&#x5C04;&#x4E8B;&#x4EF6;
+&#x4FEE;&#x6539;&#x5B50;&#x63A7;&#x5236;&#x5668;&#x4EE3;&#x7801;&#xFF0C;&#x5F53;&#x6570;&#x91CF;&#x53D8;&#x5316;&#x65F6;&#x901A;&#x77E5;&#x7236;&#x63A7;&#x5236;&#x5668;
+2)$on&#x76D1;&#x542C;&#x5B50;&#x63A7;&#x5236;&#x5668;&#x4E8B;&#x4EF6;
+&#x76D1;&#x542C;&#x5B50;&#x63A7;&#x5236;&#x5668;&#x53D1;&#x5C04;&#x7684;&#x4E8B;&#x4EF6;
+3)$broadcast&#x7236;&#x63A7;&#x5236;&#x5668;&#x5411;&#x4E0B;&#x4F20;&#x64AD;
+&#x5F53;&#x603B;&#x4EF7;&#x6539;&#x53D8;&#xFF0C;&#x5411;&#x4E0B;&#x901A;&#x77E5;&#x6240;&#x6709;&#x5B50;&#x63A7;&#x5236;&#x5668;
+4)&#x5B50;&#x63A7;&#x5236;&#x5668;&#x4E5F;&#x662F;&#x901A;&#x8FC7;$on&#x89C1;&#x65E5;&#x4F60;&#x4E2A;&#x7236;&#x63A7;&#x5236;&#x5668;&#x503C;&#x7684;&#x6539;&#x53D8;
+9.&#x8868;&#x5355;&#x5143;&#x7D20;
+1)ng-disabled,&#x503C;&#x4E3A;true&#x65F6;&#xFF0C;&#x5143;&#x7D20;&#x4E0D;&#x53EF;&#x7528;
+2)ng-readonly,&#x503C;&#x4E3A;true&#x65F6;&#xFF0C;&#x5143;&#x7D20;&#x4EC5;&#x8BFB;
+3)select&#x5FAA;&#x73AF;&#x6570;&#x636E;
+egg: d.value as d.name for d in data
+d in data&#x201C;&#x5728;&#x54EA;&#x91CC;&#x904D;&#x5386;&#x51FA;&#x6765;&#x7684;&#x503C;&#x201D;
+a.    value as&#x4E00;&#x4E2A;&#x4F5C;&#x4E3A;vaule&#x7684;&#x503C;&#xFF0C;&#x7528;&#x6237;&#x662F;&#x770B;&#x4E0D;&#x5230;&#x7684;
+a.    name for &#x7528;&#x6237;&#x53EF;&#x89C1;&#x7684;&#x503C;
+10.&#x6A21;&#x5757;&#x95F4;&#x7684;&#x4F9D;&#x8D56;
+&#x88AB;&#x4F9D;&#x8D56;&#x7684;&#x540C;&#x540D;&#x63A7;&#x5236;&#x5668;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x6389;
+11.&#x542F;&#x52A8;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#xFF08;html&#x6807;&#x7B7E;&#x4E0A;&#x4E0D;&#x5199;ng-app&#xFF09;
+&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x5E94;&#x7528;&#x5230;&#x4E0D;&#x540C;&#x7684;div&#x4E0A;&#xFF0C;&#x8FBE;&#x5230;&#x542F;&#x52A8;&#x591A;&#x4E2A;ng-app&#x7684;&#x6548;&#x679C;&#x3002;
+angular.bootstrap(div1,[&apos;appModule1&apos;]);
+angular.bootstrap(div2,[&apos;appModule2&apos;]);</li>
+</ol>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

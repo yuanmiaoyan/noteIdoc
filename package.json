@@ -1,0 +1,33 @@
+{
+    "name": "note",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        ""
+    ],
+    "homepage": "http://JSLite.io",
+    "author": "yuanmiaoyan <979476293@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "default",
+        "md": [
+            "DOM2基础原理.md",
+            {
+                "angualr": [
+                    "angualr基础.md",
+                    "一切从模块开始.md"
+                ]
+            },
+            {
+                "node": [
+                    "node入门(2).md",
+                    "node 1.md"
+                ]
+            }
+        ]
+    }
+}
