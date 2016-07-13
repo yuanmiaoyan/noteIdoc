@@ -1,39 +1,49 @@
 # node入门(1)
-### JavaScript与Node.js
->JavaScript最早是运行在浏览器中，然而浏览器只是提供了一个上下文，它定义了使用JavaScript可以做什么，但并没有“说”太多关于JavaScript语言本身可以做什么。事实上，JavaScript是一门“完整”的语言： 它可以使用在不同的上下文中，其能力与其他同类语言相比有过之而无不及。
->
-Node.js事实上就是另外一种上下文，它允许在后端（脱离浏览器环境）运行JavaScript代码。
-要实现在后台运行JavaScript代码，代码需要先被解释然后正确的执行。Node.js的原理正是如此，它使用了Google的V8虚拟机（Google的Chrome浏览器使用的JavaScript执行环境），来解释和执行JavaScript代码。
-除此之外，伴随着Node.js的还有许多有用的模块，它们可以简化很多重复的劳作，比如向终端输出字符串。
+## 1 JavaScript与Node.js
+
+> JavaScript最早是运行在浏览器中，然而浏览器只是提供了一个上下文，它定义了使用JavaScript可以做什么，但并没有“说”太多关于JavaScript语言本身可以做什么。事实上，JavaScript是一门“完整”的语言： 它可以使用在不同的上下文中，其能力与其他同类语言相比有过之而无不及。
+
+> Node.js事实上就是另外一种上下文，它允许在后端（脱离浏览器环境）运行JavaScript代码。
+
+> 要实现在后台运行JavaScript代码，代码需要先被解释然后正确的执行。Node.js的原理正是如此，它使用了Google的V8虚拟机（Google的Chrome浏览器使用的JavaScript执行环境），来解释和执行JavaScript代码。
+除此之外，伴随着Node.js的还有许多有用的模块，它们可以简化很多重复的劳作，比如向终端输出字符串。<br>
 因此，Node.js事实上既是一个运行时环境，同时又是一个库。
 
->要使用Node.js,首先需要进行安装。关于如何安装Node.js，这里就不赘述了，可以直接参考官方的安装指南。安装完成后，继续回来阅读下面的内容。`引自`[nodebeginner](http://www.nodebeginner.org/index-zh-cn.html)
+> 要使用Node.js,首先需要进行安装。关于如何安装Node.js，这里就不赘述了，可以直接参考官方的安装指南。安装完成后，继续回来阅读下面的内容。`引自`[nodebeginner](http://www.nodebeginner.org/index-zh-cn.html)
 
 
-1.	如何通过NODE把在服务器端编写的JS代码运行起来。
-        客户端：通过浏览器渲染HTML的时候，渲染HTML页面引入的JS。
-        服务器端：
-        1，,webstrom中js文件右键run即可相当于node服务环境中运行
-        2，NODE命令：在执行的目录下shift+鼠标右键，输入node+js文件名，即可运行。
-        3，cmd中输入node，然后写代码测试。
-2. 常用的cmd命令：
-	除了在win运行框中输入cmd外，我们通常使用`shift+鼠标右键` ，选择 在此打开命令提示符 来运行cmd
+### 1.1	如何通过NODE把在服务器端编写的JS代码运行起来?
+
+> * 客户端：通过浏览器渲染HTML的时候，渲染HTML页面引入的JS。<br>
+> * 服务器端：<br>
+        > 1.webstorm中js文件右键run即可相当于node服务环境中运行<br>
+        > 2.NODE命令：在执行的目录下shift+鼠标右键，输入node+js文件名，即可运行。<br>
+        > 3.cmd中输入node，然后写代码测试。
+        
+### 1.2 常用的cmd命令：<br>
+	除了在win运行框中输入cmd外，我们通常使用`shift+鼠标右键` ，选择 在此打开命令提示符 来运行cmd。<br>
 	`mkdir xxx`  创建一个文件夹,`rd xxx` 删除一个文件夹，
-	`echo >1.txt `创建文件，`del xxx` 删除指定文件
+	`echo >1.txt `创建文件，`del xxx` 删除指定文件，
 	`cd xxx`  `cd..`进入某个文件夹、返回上一级，
-3. >NODEJS是由很多的模块组成的一个供JS运行和调取特殊方法实现相关功能的一个环境的运行平台。
+	
+### 1.3 NODEJS是什么？
+> 是由很多的模块组成的一个供JS运行和调取特殊方法实现相关功能的一个环境的运行平台。
 
- Nodejs: Javascript + 网络库和网络IO（异步IO） + 事件机制（EventLoop) + 原生组件机制（Addons ）+包机制（ npm）
-        ->内置模块。：只要安装了node，天生自带的模块有：例如http\fs\url:
-        ->第三方模块：别人写好和封装的优秀模块，如果我们同样想实现类似的功能，只需要把对应的模块安装到NODE环境平台上即可。npmjs.com 是npm包管理平台。
+Nodejs: Javascript + 网络库和网络IO（异步IO） + 事件机制（EventLoop) + 原生组件机制（Addons ）+包机制（ npm）<br>
 
-4. 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。
+->内置模块：只要安装了node，天生自带的模块有：例如http\fs\url:<br>
+        
+->第三方模块：别人写好和封装的优秀模块，如果我们同样想实现类似的功能，只需要把对应的模块安装到NODE环境平台上即可。npmjs.com 是npm包管理平台。<br>
+
+### 1.4 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。<br>
 在NODEJS中，全局对象不是window，而是global；
 > 前端路由：根据前端不同的请求，服务器端接受到客户端的请求后，根据客户端请求资源文件的（html，css，js，jpg，img，audio，video）的不同，服务器端进行不同的处理，
 
-5. 一个基本的node服务器模型：
+### 1.5 一个基本的node服务器模型：
 执行此代码后，打开浏览器输入`localhost:8888/index.html`或者`你的ip + :8888/index.html`即可看到Hello World.
+
 ```
+
 var http = require("http");//引入模块（http是内置模块，稍后会详解）
 var server=http.createServer(function(request, response) {
   console.log("Request received.");
@@ -44,7 +54,7 @@ var server=http.createServer(function(request, response) {
 server.listen(8888);
 ```
 
-### 以下是node自带的核心模块详解：
+### 2 node自带的核心模块详解：
 
 1. 一些不在模块中的常用的方法：
 

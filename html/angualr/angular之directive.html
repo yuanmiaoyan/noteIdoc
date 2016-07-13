@@ -17,7 +17,7 @@
         </div>
         <input type="checkbox" id="idoc_nav" />
         <div class="menu_tree">
-        <ul><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node 1</a></li></ul></li></ul>    
+        <ul><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li><li class="active"><a href="../../html/angualr/angular之directive.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li><a href="../../html/node/node入门（1）.html">node入门（1）</a></li></ul></li></ul>    
         </div>
         
         
@@ -35,18 +35,24 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t01. 指令可以做什么？">1. 指令可以做什么？</a></li><li><a href="#t11.1 指令的参数">1.1 指令的参数</a></li><li><a href="#t22. 指令返回的对象中的属性详解">2. 指令返回的对象中的属性详解</a><ul><li><a href="#t32.1 restrict">2.1 restrict</a></li><li><a href="#t42.2 replace">2.2 replace</a></li><li><a href="#t52.3 template">2.3 template</a></li><li><a href="#t62.4 link">2.4 link</a></li><li><a href="#t72.5 templateUrl">2.5 templateUrl</a></li><li><a href="#t82.6 基本的transclude">2.6 基本的transclude</a></li><li><a href="#t92.7 scope（重要）">2.7 scope（重要）</a></li><li><a href="#t102 控制器的实例">2 控制器的实例</a></li></ul></li></ul>
+        <ul><li><a href="#t01. 指令可以做什么？">1. 指令可以做什么？</a></li><li><a href="#t11.1 指令的参数">1.1 指令的参数</a></li><li><a href="#t21.2 指令的分类">1.2 指令的分类</a></li><li><a href="#t32. 指令返回的对象中的属性详解">2. 指令返回的对象中的属性详解</a><ul><li><a href="#t42.1 restrict">2.1 restrict</a></li><li><a href="#t52.2 replace">2.2 replace</a></li><li><a href="#t62.3 template">2.3 template</a></li><li><a href="#t72.4 link">2.4 link</a></li><li><a href="#t82.5 templateUrl">2.5 templateUrl</a></li><li><a href="#t92.6 基本的transclude">2.6 基本的transclude</a></li><li><a href="#t102.7 scope（重要）">2.7 scope（重要）</a></li><li><a href="#t112.8 compile">2.8 compile</a></li><li><a href="#t122.9 controller">2.9 controller</a></li><li><a href="#t132.10 require">2.10 require</a></li><li><a href="#t142 控制器的实例">2 控制器的实例</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
         <h1 id="t01. &#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;">1. &#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F; <a href="#t01. &#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;"> # </a></h1>
-<p>&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x88C5;&#x9970;&#x6211;&#x4EEC;&#x7684;&#x9875;&#x9762;&#x4E5F;&#x53EF;&#x4EE5;&#x521B;&#x9020;&#x6807;&#x7B7E;<br>
+<p>&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x88C5;&#x9970;&#x6211;&#x4EEC;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x521B;&#x9020;&#x6807;&#x7B7E;<br>
 ng&#x5F00;&#x5934;&#x7684;&#x6307;&#x4EE4;&#x662F;angular&#x81EA;&#x5E26;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x6211;&#x4EEC;&#x5199;&#x6307;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x8981;&#x7528;ng&#x5F00;&#x5934;</p>
 <h1 id="t11.1 &#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;">1.1 &#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570; <a href="#t11.1 &#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;"> # </a></h1>
-<p> &#x6211;&#x4EEC;&#x7684;&#x6307;&#x4EE4;&#x662F;<code>&#x4E0D;&#x4F9D;&#x8D56;</code>&#x4E8E;<code>&#x63A7;&#x5236;&#x5668;</code>&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
-<pre><code>&gt; * &#x901A;&#x8FC7;&#x6A21;&#x5757;&#x58F0;&#x660E;&#x6307;&#x4EE4;
-&gt; * param1&#xFF1A;&#x6307;&#x4EE4;&#x7684;&#x540D;&#x5B57;
-&gt; * param2: &#x51FD;&#x6570;
+<p> &#x6211;&#x4EEC;&#x7684;&#x6307;&#x4EE4;&#x662F;<code>&#x4E0D;&#x4F9D;&#x8D56;</code>&#x4E8E;<code>&#x63A7;&#x5236;&#x5668;</code>&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61; </p>
+<blockquote>
+<ul>
+<li>&#x901A;&#x8FC7;&#x6A21;&#x5757;&#x58F0;&#x660E;&#x6307;&#x4EE4;</li>
+<li>param1&#xFF1A;&#x6307;&#x4EE4;&#x7684;&#x540D;&#x5B57;</li>
+<li>param2: &#x51FD;&#x6570;</li>
+</ul>
+</blockquote>
+<h1 id="t21.2 &#x6307;&#x4EE4;&#x7684;&#x5206;&#x7C7B;">1.2 &#x6307;&#x4EE4;&#x7684;&#x5206;&#x7C7B; <a href="#t21.2 &#x6307;&#x4EE4;&#x7684;&#x5206;&#x7C7B;"> # </a></h1>
+<pre><code>&#x6307;&#x4EE4;&#x7684;&#x5206;&#x7C7B;&#xFF0C;1&#xFF09;&#x88C5;&#x9970;&#x578B;&#x6307;&#x4EE4; 2&#xFF09;&#x7EC4;&#x4EF6;&#x5F0F;&#x6307;&#x4EE4;
 </code></pre><pre><code>
 //&#x58F0;&#x660E;&#x7684;&#x9ED8;&#x8BA4;&#x6307;&#x4EE4;&#x4E0D;&#x4F1A;&#x521B;&#x5EFA;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E0D;&#x662F;&#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x627E;&#x5230;&#x6700;&#x8FD1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x627E;&#x5230;$rootscope&#x6839;&#x4F5C;&#x7528;&#x57DF;&#x4E0A; 
 
@@ -69,8 +75,8 @@ app.directive(&apos;myDirective&apos;, function () {
         }
 
     });
-</code></pre><h1 id="t22. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3;">2. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3; <a href="#t22. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3;"> # </a></h1>
-<h2 id="t32.1 restrict">2.1 restrict <a href="#t32.1 restrict"> # </a></h2>
+</code></pre><h1 id="t32. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3;">2. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3; <a href="#t32. &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8BE6;&#x89E3;"> # </a></h1>
+<h2 id="t42.1 restrict">2.1 restrict <a href="#t42.1 restrict"> # </a></h2>
 <blockquote>
 <p>&#x4F5C;&#x7528;&#xFF1A;&#x9650;&#x5236;&#x6307;&#x4EE4;&#x4F7F;&#x7528;&#x8303;&#x56F4;&#x3002;
 &#x503C;&#x6709;4&#x4E2A;&#xFF1A;ECMA<br>
@@ -83,18 +89,19 @@ app.directive(&apos;myDirective&apos;, function () {
 <li>A:attribute</li>
 </ul>
 </blockquote>
-<h2 id="t42.2 replace">2.2 replace <a href="#t42.2 replace"> # </a></h2>
+<h2 id="t52.2 replace">2.2 replace <a href="#t52.2 replace"> # </a></h2>
 <blockquote>
 <p>&#x503C;&#x4E3A;true&#x65F6;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x6A21;&#x677F;&#x5185;&#x5BB9;,&#x539F;&#x6709;&#x7684;&#x6307;&#x4EE4;&#x88AB;&#x66FF;&#x6362;&#x6389; </p>
 </blockquote>
-<h2 id="t52.3 template">2.3 template <a href="#t52.3 template"> # </a></h2>
+<h2 id="t62.3 template">2.3 template <a href="#t62.3 template"> # </a></h2>
 <blockquote>
 <p>&#x4F5C;&#x7528;&#xFF1A;&#x4F5C;&#x4E3A;&#x6A21;&#x677F;&#xFF0C;&#x628A;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;&#x66FF;&#x6362;&#x4E3A;&#x6A21;&#x677F;&#x503C;&#x3002;
- &#x5982;&#x679C;&#x628A;&#x539F;&#x6709;&#x7684;&#x6307;&#x4EE4;&#x66FF;&#x6362;&#x6389; &#x6839;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x3002;</p>
+ &#x5982;&#x679C;&#x628A;&#x539F;&#x6709;&#x7684;&#x6307;&#x4EE4;&#x66FF;&#x6362;&#x6389;(&#x5373;relace:true),&#x6839;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;,&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
 </blockquote>
-<h2 id="t62.4 link">2.4 link <a href="#t62.4 link"> # </a></h2>
+<h2 id="t72.4 link">2.4 link <a href="#t72.4 link"> # </a></h2>
 <blockquote>
 <p>&#x4F5C;&#x7528;&#xFF1A;&#x8FDE;&#x63A5;&#x89C6;&#x56FE;&#x548C;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<p>&#x82E5;&#x6307;&#x4EE4;&#x4E2D;&#x5B9A;&#x4E49;&#x6709;require&#x9009;&#x9879;&#xFF0C;&#x5219;link&#x51FD;&#x6570;&#x4F1A;&#x6709;&#x7B2C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4EE3;&#x8868;&#x63A7;&#x5236;&#x5668;&#x6216;&#x8005;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x6307;&#x4EE4;&#x7684;&#x63A7;&#x5236;&#x5668;&#xFF08;&#x5373;&#x5B9E;&#x4F8B;&#x6CE8;&#x5165;&#xFF09;</p>
 <ul>
 <li>scope&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;</li>
 <li>element&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x7684;&#x5143;&#x7D20;, element&#x4E3A;jq&#x5143;&#x7D20;, angular.element</li>
@@ -103,19 +110,19 @@ app.directive(&apos;myDirective&apos;, function () {
 <li>&#x5728;&#x9875;&#x9762;&#x4E0A;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;<code>&lt;my-directive&gt;</code> &#x5728;js&#x4E2D;&#x8981;&#x53D8;&#x6210;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5;</li>
 </ul>
 </blockquote>
-<h2 id="t72.5 templateUrl">2.5 templateUrl <a href="#t72.5 templateUrl"> # </a></h2>
+<h2 id="t82.5 templateUrl">2.5 templateUrl <a href="#t82.5 templateUrl"> # </a></h2>
 <blockquote>
 <p>&#x4F7F;&#x7528;template&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5199;&#x7ED3;&#x6784;&#x6807;&#x7B7E;&#xFF0C;&#x4F46;&#x662F;&#x8FC7;&#x591A;&#x7684;&#x7ED3;&#x6784;&#x6807;&#x7B7E;&#x653E;&#x5728;javascipt&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4E0D;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x591F;&#x4F18;&#x96C5;&#xFF0C;&#x6211;&#x4EEC;&#x8FFD;&#x6C42;&#x7684;&#x662F;&#x4F18;&#x96C5;&#x7684;&#x4EE3;&#x7801;&#x3002;<br>
   templateUrl&#x5E94;&#x8FD0;&#x800C;&#x751F;&#xFF0C;&#x6211;&#x4EEC;&#x50CF;ng-include&#x90A3;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;xxx.html&#x6587;&#x6587;&#x4EF6;&#xFF0C;&#x628A;&#x9700;&#x8981;&#x7684;&#x7ED3;&#x6784;&#x76F4;&#x63A5;&#x653E;&#x5728;html&#x6587;&#x4EF6;&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;templateUrl:&apos;xxx.html&apos;,&#x5C31;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5230;&#x9700;&#x8981;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5E76;&#x66FF;&#x6362;&#x6216;&#x8005;&#x653E;&#x5230;&#x6307;&#x4EE4;&#x4E2D;&#x4E86;</p>
 </blockquote>
-<h2 id="t82.6 &#x57FA;&#x672C;&#x7684;transclude">2.6 &#x57FA;&#x672C;&#x7684;transclude <a href="#t82.6 &#x57FA;&#x672C;&#x7684;transclude"> # </a></h2>
+<h2 id="t92.6 &#x57FA;&#x672C;&#x7684;transclude">2.6 &#x57FA;&#x672C;&#x7684;transclude <a href="#t92.6 &#x57FA;&#x672C;&#x7684;transclude"> # </a></h2>
 <p>&#xFF08;transclude&#x8FD8;&#x5177;&#x6709;&#x5F88;&#x6709;&#x6DF1;&#x5EA6;&#x7684;&#x610F;&#x4E49;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x6DF1;&#x7A76;&#xFF09;
 &#x7B80;&#x5355;&#x7684;&#x8BB2;&#xFF0C;transclude&#x4E3B;&#x8981;&#x5B8C;&#x6210;&#x4EE5;&#x4E0B;&#x5DE5;&#x4F5C;&#xFF0C;&#x53D6;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;&#x4E2D;&#x7684;&#x5185;&#x5BB9;(&#x5C31;&#x662F;&#x5199;&#x5728;&#x6307;&#x4EE4;&#x91CC;&#x9762;&#x7684;&#x5B50;&#x5143;&#x7D20;)&#xFF0C;&#x4EE5;&#x6B63;&#x786E;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x89E3;&#x6790;&#x5B83;,&#x7136;&#x540E;&#x518D;&#x653E;&#x56DE;&#x6307;&#x4EE4;&#x6A21;&#x677F;&#x4E2D;&#x6807;&#x8BB0;&#x7684;&#x4F4D;&#x7F6E;(&#x901A;&#x5E38;&#x662F;ng-transclude&#x6807;&#x8BB0;&#x7684;&#x5730;&#x65B9;)</p>
 <blockquote>
 <p>transclude:true,&#x5C06;&#x6307;&#x4EE4;&#x5185;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#xFF0C;&#x653E;&#x5230;&#x6307;&#x5B9A;transclude&#x6807;&#x7B7E;&#x5185;&#x3002;<br><br>
 &#x4E00;&#x822C;&#x662F;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x6807;&#x7B7E;&#xFF0C;&#x4F8B;&#x5982;<code>&lt;span ng-transclude&gt;&lt;/span&gt;</code>,&#x5426;&#x5219;&#x6807;&#x7B7E;&#x5185;&#x90E8;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x6389;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8DB3;&#x591F;&#x5F3A;&#x5927;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x5C0F;&#x83DC;&#x4E00;&#x789F;&#x4E86;.</p>
 </blockquote>
-<h2 id="t92.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09;">2.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09; <a href="#t92.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09;"> # </a></h2>
+<h2 id="t102.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09;">2.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09; <a href="#t102.7 scope&#xFF08;&#x91CD;&#x8981;&#xFF09;"> # </a></h2>
 <p>&#x6307;&#x5B9A;scope:{}&#xFF0C;&#x8BBE;&#x7ACB;&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x8FD9;&#x6837;&#x53D6;&#x5F97;&#x7684;&#x503C;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#xFF0C;&#x5C31;&#x4F8B;&#x5982;for&#x5FAA;&#x73AF;&#x4E2D;&#x7684;i&#x503C;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E86;&#x72EC;&#x7ACB;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E0D;&#x80FD;&#x627E;&#x4E0A;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E0A;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;</p>
 <p>scope&#x4E2D;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4E09;&#x4E2A;&#x7B26;&#x53F7;&#xFF1A;</p>
 <blockquote>
@@ -124,7 +131,31 @@ app.directive(&apos;myDirective&apos;, function () {
 <p>&quot;=&quot;&#xFF1A;&#x7B49;&#x53F7;&#x53D6;&#x5F97;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E0B;&#x67E5;&#x627E;&#x5230;&#x7684;&#x53D8;&#x91CF;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;&#x652F;&#x6301;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#xFF0C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E0B;&#x5BF9;&#x5E94;&#x7684;&#x53D8;&#x91CF;</p>
 <p>&quot;&amp;&quot;&#xFF1A;&#x5F15;&#x7528;&#x7684;&#x662F;&#x63A7;&#x5236;&#x5668;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x8981;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#xFF0C;&#x952E;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x540D;&#x5B57;</p>
 </blockquote>
-<h2 id="t102 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B;">2 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B; <a href="#t102 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B;"> # </a></h2>
+<h2 id="t112.8 compile">2.8 compile <a href="#t112.8 compile"> # </a></h2>
+<blockquote>
+<ul>
+<li>compile&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x51FD;&#x6570;&#x3002;<br></li>
+</ul>
+</blockquote>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x6307;&#x4EE4;&#x548C;&#x5B9E;&#x65F6;&#x6570;&#x636E;&#x88AB;&#x653E;&#x5230;DOM&#x4E2D;&#x4E4B;&#x524D;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;</p>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;&#x6216;&#x8005;&#x5220;&#x9664;&#x8282;&#x70B9;&#x7684;DOM&#x7684;&#x64CD;&#x4F5C;&#x3002;<br></p>
+<p>&#x6240;&#x4EE5;&#x7F16;&#x8BD1;&#x51FD;&#x6570;&#x662F;&#x8D1F;&#x8D23;&#x5BF9;&#x6A21;&#x677F;&#x7684;DOM&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#xFF0C;&#x5E76;&#x4E14;&#x4EC5;&#x4EC5;&#x53EA;&#x4F1A;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x3002;</p>
+<blockquote>
+<p>&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x7684;&#x5927;&#x90E8;&#x5206;&#x7684;&#x6307;&#x4EE4;&#x6765;&#x8BF4;&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x6A21;&#x677F;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x90E8;&#x5206;&#x60C5;&#x51B5;&#x53EA;&#x8981;&#x7F16;&#x5199;link&#x51FD;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<p>&#x5728;&#x6307;&#x4EE4;&#x4E2D;compile&#x4E0E;link&#x9009;&#x9879;&#x662F;&#x4E92;&#x65A5;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x628A;compile&#x6240;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x5F53;&#x505A;&#x662F;&#x94FE;&#x63A5;&#x51FD;&#x6570;&#xFF0C;&#x800C;link&#x9009;&#x9879;&#x672C;&#x8EAB;&#x5C31;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x6389;</p>
+</blockquote>
+<h2 id="t122.9 controller">2.9 controller <a href="#t122.9 controller"> # </a></h2>
+<p>&#x6307;&#x4EE4;&#x4E2D;&#x7684;controller&#x662F;&#x7528;&#x6765;&#x8BA9;&#x4E0D;&#x540C;&#x6307;&#x4EE4;&#x95F4;&#x901A;&#x4FE1;&#x7528;&#x7684;&#x3002;</p>
+<h2 id="t132.10 require">2.10 require <a href="#t132.10 require"> # </a></h2>
+<blockquote>
+<ul>
+<li>require:&apos;girl&apos;,//&#x76F4;&#x63A5;&#x5199;girl&#x8868;&#x793A;&#x5728;&#x5F53;&#x524D;&#x6307;&#x4EE4;&#x4E0B;&#x67E5;&#x627E;&#xFF08;&#x5E73;&#x7EA7;&#xFF09;</li>
+<li>require:&apos;^girl&apos;//&#x76F4;&#x63A5;&#x5199;girl&#x8868;&#x793A;&#x5728;&#x5F53;&#x524D;&#x6307;&#x4EE4;&#x4E0B;&#x67E5;&#x627E;&#xFF08;&#x5E73;&#x7EA7;+&#x4E0A;&#x4E00;&#x7EA7;&#xFF09;</li>
+<li>require:&apos;?^girl&apos;,//&#x627E;&#x4E0D;&#x5230;&#x7684;&#x8BDD;&#x4E0D;&#x62A5;&#x9519;</li>
+<li>require:&apos;?girl&apos;,//&#x627E;&#x4E0D;&#x5230;&#x7684;&#x8BDD;&#x4E0D;&#x62A5;&#x9519;*/</li>
+</ul>
+</blockquote>
+<h2 id="t142 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B;">2 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B; <a href="#t142 &#x63A7;&#x5236;&#x5668;&#x7684;&#x5B9E;&#x4F8B;"> # </a></h2>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;
