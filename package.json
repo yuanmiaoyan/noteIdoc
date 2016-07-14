@@ -1,5 +1,5 @@
 {
-    "name": "note",
+    "name": "Study Notes",
     "version": "0.0.1",
     "description": "",
     "keywords": [
@@ -13,8 +13,9 @@
     },
     "licenses": "MIT",
     "idoc": {
-        "theme": "default",
+        "theme": "BLOG",
         "md": [
+            "首页.md",
             "DOM2基础原理.md",
             {
                 "angualr": [

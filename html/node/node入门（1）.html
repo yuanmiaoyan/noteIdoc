@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>note</title>
+    <title>Study Notes</title>
         
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
 </head>
@@ -12,15 +12,15 @@
     <div class="container">
         <div class="logo">
             
-                note
+                Study Notes
             
         </div>
         <input type="checkbox" id="idoc_nav" />
         <div class="menu_tree">
-        <ul><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node入门（1）</a></li></ul></li></ul>    
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../html/DOM2基础原理.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li><li><a href="../../html/angualr/angular之directive.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li class="active"><a href="../../html/node/node入门（1）.html">node入门（1）</a></li></ul></li></ul>
         </div>
         
-        
+        <!---->
 
         <section class="idoc_nav_btn">
             <label for="idoc_nav"><span></span></label>
@@ -33,13 +33,14 @@
 
 
 <div class="container">
-
-    <div class="page-toc">
-        <ul><li><a href="#t0node入门(1)">node入门(1)</a><ul><li><a href="#t11 JavaScript与Node.js">1 JavaScript与Node.js</a><ul><li><a href="#t21.1    如何通过NODE把在服务器端编写的JS代码运行起来?">1.1    如何通过NODE把在服务器端编写的JS代码运行起来?</a></li><li><a href="#t31.2 常用的cmd命令：">1.2 常用的cmd命令：</a></li><li><a href="#t41.3 NODEJS是什么？">1.3 NODEJS是什么？</a></li><li><a href="#t51.4 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。">1.4 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。</a></li><li><a href="#t61.5 一个基本的node服务器模型：">1.5 一个基本的node服务器模型：</a></li><li><a href="#t72 node自带的核心模块详解：">2 node自带的核心模块详解：</a></li></ul></li></ul></li></ul>
-    </div>
     
-    <div class="content markdown-body">
-        <h1 id="t0node&#x5165;&#x95E8;(1)">node&#x5165;&#x95E8;(1) <a href="#t0node&#x5165;&#x95E8;(1)"> # </a></h1>
+        <div class="page-toc">
+            <ul><li><a href="#t0node入门(1)">node入门(1)</a><ul><li><a href="#t11 JavaScript与Node.js">1 JavaScript与Node.js</a><ul><li><a href="#t21.1    如何通过NODE把在服务器端编写的JS代码运行起来?">1.1    如何通过NODE把在服务器端编写的JS代码运行起来?</a></li><li><a href="#t31.2 常用的cmd命令：">1.2 常用的cmd命令：</a></li><li><a href="#t41.3 NODEJS是什么？">1.3 NODEJS是什么？</a></li><li><a href="#t51.4 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。">1.4 在NODEJS中，JS修改一次，一般情况下，想让最新的代码起到效果，我们需要重新的使用NODE执行一次。</a></li><li><a href="#t61.5 一个基本的node服务器模型：">1.5 一个基本的node服务器模型：</a></li></ul></li><li><a href="#t72 node自带的核心模块详解：">2 node自带的核心模块详解：</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0node&#x5165;&#x95E8;(1)">node&#x5165;&#x95E8;(1) <a href="#t0node&#x5165;&#x95E8;(1)"> # </a></h1>
 <h2 id="t11 JavaScript&#x4E0E;Node.js">1 JavaScript&#x4E0E;Node.js <a href="#t11 JavaScript&#x4E0E;Node.js"> # </a></h2>
 <blockquote>
 <p>JavaScript&#x6700;&#x65E9;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x7136;&#x800C;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4F7F;&#x7528;JavaScript&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x4F46;&#x5E76;&#x6CA1;&#x6709;&#x201C;&#x8BF4;&#x201D;&#x592A;&#x591A;&#x5173;&#x4E8E;JavaScript&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;JavaScript&#x662F;&#x4E00;&#x95E8;&#x201C;&#x5B8C;&#x6574;&#x201D;&#x7684;&#x8BED;&#x8A00;&#xFF1A; &#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;&#x5176;&#x80FD;&#x529B;&#x4E0E;&#x5176;&#x4ED6;&#x540C;&#x7C7B;&#x8BED;&#x8A00;&#x76F8;&#x6BD4;&#x6709;&#x8FC7;&#x4E4B;&#x800C;&#x65E0;&#x4E0D;&#x53CA;&#x3002;</p>
@@ -87,7 +88,7 @@ var server=http.createServer(function(request, response) {
   response.end();
 })
 server.listen(8888);
-</code></pre><h3 id="t72 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;">2 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A; <a href="#t72 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;"> # </a></h3>
+</code></pre><h2 id="t72 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;">2 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A; <a href="#t72 node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;"> # </a></h2>
 <ol>
 <li>&#x4E00;&#x4E9B;&#x4E0D;&#x5728;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</li>
 </ol>
@@ -224,11 +225,195 @@ console.log(res);
 console.log(new Buffer(res,&apos;base64&apos;).toString());//&#x6700;&#x540E;&#x8F6C;&#x4F1A;&#x6C49;&#x5B57;&#x67E5;&#x770B;&#x662F;&#x5426;&#x8F6C;&#x6362;&#x6210;&#x529F;&#x3002;
 ```</p>
 
-        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
-    </div>
 
+        </div>
+    
 </div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
 
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
 
 </body>
 </html>
+
+
+<script>
+
+</script>

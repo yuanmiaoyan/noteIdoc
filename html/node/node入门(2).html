@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>note</title>
+    <title>Study Notes</title>
         
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
 </head>
@@ -12,15 +12,15 @@
     <div class="container">
         <div class="logo">
             
-                note
+                Study Notes
             
         </div>
         <input type="checkbox" id="idoc_nav" />
         <div class="menu_tree">
-        <ul><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li><li><a href="../../html/angualr/angular之directive.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li class="active"><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li><a href="../../html/node/node入门（1）.html">node入门（1）</a></li></ul></li></ul>    
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../html/DOM2基础原理.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li><li><a href="../../html/angualr/angular之directive.html">angular之directive</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li class="active"><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li><a href="../../html/node/node入门（1）.html">node入门（1）</a></li></ul></li></ul>
         </div>
         
-        
+        <!---->
 
         <section class="idoc_nav_btn">
             <label for="idoc_nav"><span></span></label>
@@ -33,13 +33,14 @@
 
 
 <div class="container">
-
-    <div class="page-toc">
-        <ul><li><a href="#t0node入门(2)">node入门(2)</a><ul><li><a href="#t1fs模块">fs模块</a></li></ul></li></ul>
-    </div>
     
-    <div class="content markdown-body">
-        <h1 id="t0node&#x5165;&#x95E8;(2)">node&#x5165;&#x95E8;(2) <a href="#t0node&#x5165;&#x95E8;(2)"> # </a></h1>
+        <div class="page-toc">
+            <ul><li><a href="#t0node入门(2)">node入门(2)</a><ul><li><a href="#t1fs模块">fs模块</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0node&#x5165;&#x95E8;(2)">node&#x5165;&#x95E8;(2) <a href="#t0node&#x5165;&#x95E8;(2)"> # </a></h1>
 <h3 id="t1fs&#x6A21;&#x5757;">fs&#x6A21;&#x5757; <a href="#t1fs&#x6A21;&#x5757;"> # </a></h3>
 <blockquote>
 <p>fs&#x6A21;&#x5757;&#x662F;&#x6211;&#x4EEC;node&#x4E2D;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x6240;&#x4EE5;&#x5355;&#x72EC;&#x6765;&#x8BF4;&#xFF0C;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5747;&#x6709;&#x5F02;&#x6B65;&#x548C;&#x540C;&#x6B65;&#x7248;&#x672C;&#xFF0C;&#x4F8B;&#x5982;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5F02;&#x6B65;&#x7684; fs.readFile() &#x548C;&#x540C;&#x6B65;&#x7684; fs.readFileSync()&#x3002;
@@ -157,11 +158,195 @@ console.log(path.basename(&apos;a.js&apos;,&apos;.js&apos;)+path.extname(&apos;b
 <p>console.log(path.delimiter); //&#x83B7;&#x53D6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5206;&#x9694;&#x7B26; mac&#x662F;&#x5192;&#x53F7;&#xFF0C;//&#x53EF;&#x4EE5;&#x533A;&#x5206;&#x662F;mac&#x8FD8;&#x662F;windows
 ```</p>
 
-        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
-    </div>
 
+        </div>
+    
 </div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
 
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
 
 </body>
 </html>
+
+
+<script>
+
+</script>

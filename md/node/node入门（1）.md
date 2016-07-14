@@ -54,7 +54,7 @@ var server=http.createServer(function(request, response) {
 server.listen(8888);
 ```
 
-### 2 node自带的核心模块详解：
+## 2 node自带的核心模块详解：
 
 1. 一些不在模块中的常用的方法：
 
