@@ -21,13 +21,16 @@
                 "angualr": [
                     "angualr基础.md",
                     "一切从模块开始.md",
-                    "angular之directive.md"
+                    "angular之directive.md",
+                    "服务.md"
                 ]
             },
             {
                 "node": [
                     "node入门(2).md",
-                    "node入门（1）.md"
+                    "node入门(1).md",
+                    "流.md",
+                    "http.md"
                 ]
             }
         ]

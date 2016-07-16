@@ -167,7 +167,7 @@ a.copy(b,3);//拷贝，把a拷贝到b中，默认是从原buffer的开始考到�
 ```
 封装buffer中的concat方法:
 ```
-Buffer.myConcat = function (list,totalLength) {//把buffer拼成一个  buffer.copy考入到大buffer中之后返回
+Buffer.myConcat = function (list,totalLength) {//把buffer拼成一个  buffer.copy拷入到大buffer中之后返回
     //先判断当前list的个数，如果只有一个直接返回
     if(list.length==1){return list[0];}
     //我们要判断totalLength有没有传递

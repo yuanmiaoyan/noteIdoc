@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Notes</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Study Notes
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li><li><a href="../../index.html">服务</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node入门(1)</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">http</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0http">http</a><ul><li><a href="#t11.1 2种写入文件的方式">1.1 2种写入文件的方式</a></li><li><a href="#t21.2 请求">1.2 请求</a></li><li><a href="#t31.3 mime-type">1.3 mime-type</a><ul><li><a href="#t41.3.1 lookup">1.3.1 lookup</a></li></ul></li><li><a href="#t51.4 url详解">1.4 url详解</a></li><li><a href="#t61.5 querystring">1.5 querystring</a></li><li><a href="#t71.6 setEncoding">1.6 setEncoding</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0http">http <a href="#t0http"> # </a></h1>
+<blockquote>
+<ul>
+<li><p>&#x8981;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;http &#x9700;&#x8981;&#x5F15;&#x5165;&#x6838;&#x5FC3;&#x6A21;&#x5757;http</p>
+</li>
+<li><p>&#x670D;&#x52A1;&#x7684;&#x7279;&#x70B9; &#x901A;&#x8FC7;&#x56FA;&#x5B9A;ip&#x548C; &#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x54CD;&#x5E94;&#x6570;&#x636E;<br>
+&#x4E3B;&#x8981;&#x7531;&#x4E24;&#x90E8;&#x5206;&#x7EC4;&#x6210;req&#x8BF7;&#x6C42;,res&#x54CD;&#x5E94;(res&#x662F;&#x4E2A;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x5165;&#x7684;&#x6D41;)</p>
+</li>
+<li><p>setHeader:&#x8BBE;&#x7F6E;&#x5934;&#xFF0C;&#x8BA9;&#x6D4F;&#x89C8;&#x5668;&#x6309;&#x6B63;&#x5E38;&#x7684;&#x5F62;&#x5F0F;&#x89E3;&#x6790;(&#x4EE5;&#x524D;&#x6211;&#x4EEC;&#x662F;res.writeHead)</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="t11.1 2&#x79CD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;">1.1 2&#x79CD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F; <a href="#t11.1 2&#x79CD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;"> # </a></h2>
+<pre><code> //
+ var http = require(&apos;http&apos;);
+ var fs = require(&apos;fs&apos;);
+
+ http.createServer(function (req,res) {
+    res.setHeader(&apos;content-type&apos;,&apos;text/html;charset=utf8&apos;);    
+     //&#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x7684;&#x65B9;&#x5F0F;
+      fs.readFile(&apos;./index.html&apos;, function (err,data) {
+         if(!err)
+             res.end(data);
+     })
+     //&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x6D41;&#x7684;&#x65B9;&#x5F0F;
+     //&#x76F4;&#x63A5;&#x5C06;&#x8BFB;&#x53D6;&#x7684;&#x6D41;&#x5BFC;&#x5165;&#x5230;&#x53EF;&#x5199;&#x6D41;&#x91CC;
+     fs.createReadStream(&apos;./index.html&apos;).pipe(res);
+ }).listen(8888);
+</code></pre><h2 id="t21.2 &#x8BF7;&#x6C42;">1.2 &#x8BF7;&#x6C42; <a href="#t21.2 &#x8BF7;&#x6C42;"> # </a></h2>
+<blockquote>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x8BF7;&#x6C42;html&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9047;&#x5230;&#x5F15;&#x7528;&#x6587;&#x4EF6;&#x3001;&#x56FE;&#x7247;&#x90FD;&#x4F1A;&#x518D;&#x6B21;&#x53D1;&#x9001;&#x8BF7;&#x6C42;</p>
+<ul>
+<li><p>req.url//&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;</p>
+</li>
+<li><p>req.headers//&#x8BF7;&#x6C42;&#x7684;&#x5934;&#x90E8;</p>
+</li>
+<li><p>req.method//&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>res.statusCode = 404;</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="t31.3 mime-type">1.3 mime-type <a href="#t31.3 mime-type"> # </a></h2>
+<p> &#x6211;&#x4EEC;&#x8981;&#x89E3;&#x6790;mime-type&#xFF0C;&#x5B83;&#x662F;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF0C;&#x8981;&#x5B89;&#x88C5;mime-type&#xFF08;webstorm&#x4E2D;view--&gt;Tool Windows--&gt;Terminal--&gt;npm install mime&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x6216;&#x8005;git&#xFF09;&#xFF1B;<br></p>
+<p> fs.existsSync(&apos;.&apos;+pathname)//&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;</p>
+<h3 id="t41.3.1 lookup">1.3.1 lookup <a href="#t41.3.1 lookup"> # </a></h3>
+<p> &#x901A;&#x8FC7;mime&#x7684;lookup&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5BF9;&#x5E94;&#x5F97;mime-type</p>
+<pre><code>
+res.setHeader(&apos;content-type&apos;,mime.lookup(pathname)+&apos;;charset=utf8&apos;);
+</code></pre><h2 id="t51.4 url&#x8BE6;&#x89E3;">1.4 url&#x8BE6;&#x89E3; <a href="#t51.4 url&#x8BE6;&#x89E3;"> # </a></h2>
+<pre><code>
+ var url = require(&apos;url&apos;);
+
+ var urlObj = url.parse(&apos;https://123:jw@www.baidu.com:90/s?wd=charles&amp;rsv_spt=1&amp;rsv_iqid=0x9d1b5b1e0017bcdc&amp;issp=1&amp;f=8&amp;rsv_bp=0&amp;rsv_idx=2&amp;ie=utf-8&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_sug3=4&amp;rsv_sug1=4&amp;rsv_sug7=100#123&apos;,true);
+ console.log(urlObj);
+ /*  protocol: &apos;https:&apos;, &#x534F;&#x8BAE;
+     slashes: true,  &#x662F;&#x5426;&#x6709;//
+     auth: &apos;123:jw&apos;,  &#x5F53;&#x524D;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;
+     host: &apos;www.baidu.com:90&apos;, &#x5730;&#x5740;&#xFF08;&#x7AEF;&#x53E3;&#xFF09;
+     port: &apos;90&apos;, &#x7AEF;&#x53E3;&#x53F7;
+     hostname: &apos;www.baidu.com&apos;, &#x5730;&#x5740;
+     hash: &apos;#123&apos;,hash&#x503C;
+     search: &apos;?wd=charles&amp;rsv_spt=10&apos;, &#x67E5;&#x8BE2;&#x4E32;
+     query:
+     { wd: &apos;charles&apos;,}, &#x67E5;&#x8BE2;&#x5BF9;&#x8C61;&#x5F53;&#x53C2;&#x6570;&#x4E3A;true&#xFF0C;&#x662F;&#x5BF9;&#x8C61;
+     pathname: &apos;/s&apos;, &#x5F53;&#x524D;&#x7684;&#x8DEF;&#x5F84;&#x5730;&#x5740;
+     path: &apos;/s?wd=charles, &#x5F53;&#x524D;&#x7684;&#x8DEF;&#x5F84;
+     href: &apos;https://123:jw@www.baidu.com:90/s?wd=charles } &#x5B8C;&#x6574;&#x5730;&#x5740;
+</code></pre><h2 id="t61.5 querystring">1.5 querystring <a href="#t61.5 querystring"> # </a></h2>
+<blockquote>
+<p>&#x7528;&#x6765;&#x89E3;&#x6790;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x7684; &#x6838;&#x5FC3;&#x6A21;&#x5757;(&#x5373;&#x5185;&#x7F6E;)</p>
+</blockquote>
+<pre><code>
+ var querystring = require(&apos;querystring&apos;);
+ //&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x5206;&#x9694;&#x7B26; param1&#x662F;&#x8981;&#x89E3;&#x6790;&#x7684;&#x5B57;&#x7B26;&#x4E32;  param2 &#x6BCF;&#x4E00;&#x7EC4;&#x5185;&#x5BB9;&#x7684;&#x5206;&#x9694;&#x7B26; &#x952E;&#x503C;&#x5206;&#x9694;&#x7B26;
+ //&#x89E3;&#x6790;&#x6210;&#x5BF9;&#x8C61;
+ var obj = querystring.parse(&apos;username==123&amp;&amp;password==321&apos;,&apos;&amp;&amp;&apos;,&apos;==&apos;);
+ //&#x5C06;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x6210;&#x5B57;&#x7B26;&#x4E32;
+ var str = querystring.stringify({ username: &apos;123&apos;, password: &apos;321&apos; },&apos;*&apos;,&apos;@&apos;);
+ console.log(str);
+</code></pre><h2 id="t71.6 setEncoding">1.6 setEncoding <a href="#t71.6 setEncoding"> # </a></h2>
+<pre><code>
+ res.setEncoding(&apos;utf8&apos;)
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
