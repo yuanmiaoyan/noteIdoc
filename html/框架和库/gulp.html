@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Notes</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Study Notes
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../html/DOM2基础原理.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../html/angualr/angualr基础.html">angualr基础</a></li><li><a href="../../html/angualr/一切从模块开始.html">一切从模块开始</a></li><li><a href="../../html/angualr/angular之directive.html">angular之directive</a></li><li><a href="../../html/angualr/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../html/node/node入门(2).html">node入门(2)</a></li><li><a href="../../html/node/node入门(1).html">node入门(1)</a></li><li><a href="../../html/node/流.html">流</a></li><li><a href="../../html/node/http.html">http</a></li></ul></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../html/javascript/数组常用方法.html">数组常用方法</a></li><li><a href="../../html/javascript/字符串常用方法.html">字符串常用方法</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li class="active"><a href="../../html/框架和库/gulp.html">gulp</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01 全局安装gulp">1 全局安装gulp</a></li><li><a href="#t12 本地安装gulp">2 本地安装gulp</a><ul><li><a href="#t22.1 新建一个目录">2.1 新建一个目录</a></li><li><a href="#t32.2 进入目录">2.2 进入目录</a></li><li><a href="#t42.3 初始化">2.3 初始化</a></li><li><a href="#t52.4 安装gulp">2.4 安装gulp</a></li></ul></li><li><a href="#t63 运行gulp">3 运行gulp</a><ul><li><a href="#t73.1 引入gulp模块">3.1 引入gulp模块</a></li><li><a href="#t83.2 创建gulp的任务">3.2 创建gulp的任务</a></li><li><a href="#t93.3 执行gulp任务">3.3 执行gulp任务</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t01 &#x5168;&#x5C40;&#x5B89;&#x88C5;gulp">1 &#x5168;&#x5C40;&#x5B89;&#x88C5;gulp <a href="#t01 &#x5168;&#x5C40;&#x5B89;&#x88C5;gulp"> # </a></h1>
+<p>$npm install -g gulp(&#x7F51;&#x4E0D;&#x597D;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x88C5;&#x4E0D;&#x4E0A;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E00;&#x822C;&#x6CA1;&#x6709;&#x95EE;&#x9898;)</p>
+<p>&#x5176;&#x4ED6;&#x6E90;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x6DD8;&#x5B9D;&#x6E90; npm install -g gulp --registry=<a href="http://registry.npm.taobao.org">http://registry.npm.taobao.org</a></li>
+<li>&#x4E2D;&#x56FD;&#x6E90; npm install -g gulp --registry=<a href="http://registry.cnpmjs.org">http://registry.cnpmjs.org</a></li>
+<li>&#x5B98;&#x65B9;&#x6E90; npm install -g gulp --registry=<a href="http://www.npmjs.org/">http://www.npmjs.org/</a></li>
+</ul>
+</blockquote>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;gulp -v
+&#x663E;&#x793A;<code>CLI version 3.9.1</code>&#x7248;&#x672C;&#x4FE1;&#x606F;&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x6210;&#x529F;</p>
+<h1 id="t12 &#x672C;&#x5730;&#x5B89;&#x88C5;gulp">2 &#x672C;&#x5730;&#x5B89;&#x88C5;gulp <a href="#t12 &#x672C;&#x5730;&#x5B89;&#x88C5;gulp"> # </a></h1>
+<p>&#x8FD9;&#x91CC;&#x4EE5;windows&#x7CFB;&#x7EDF;&#x4E3A;&#x4F8B;</p>
+<h2 id="t22.1 &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;">2.1 &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55; <a href="#t22.1 &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;"> # </a></h2>
+<p>1&#xFF09;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#xFF1A;$ mkdir learngulp</p>
+<p>2&#xFF09;&#x4F7F;&#x7528;&#x53EF;&#x89C6;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;&#x9F20;&#x6807;&#x53F3;&#x952E;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;&#x5939;</p>
+<h2 id="t32.2 &#x8FDB;&#x5165;&#x76EE;&#x5F55;">2.2 &#x8FDB;&#x5165;&#x76EE;&#x5F55; <a href="#t32.2 &#x8FDB;&#x5165;&#x76EE;&#x5F55;"> # </a></h2>
+<p>1&#xFF09;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#xFF1A;cd learngulp</p>
+<p>2&#xFF09;&#x4F7F;&#x7528;&#x53EF;&#x89C6;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#x5C31;&#x597D;</p>
+<h2 id="t42.3 &#x521D;&#x59CB;&#x5316;">2.3 &#x521D;&#x59CB;&#x5316; <a href="#t42.3 &#x521D;&#x59CB;&#x5316;"> # </a></h2>
+<p>1&#xFF09;$ npm init &#x4E00;&#x8DEF;&#x56DE;&#x8F66;&#x4E0B;&#x53BB;&#x5373;&#x53EF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x586B;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53EB;pakage.json&#x9879;&#x76EE;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;</p>
+<p>2&#xFF09;&#x5982;&#x679C;&#x662F;&#x4F7F;&#x7528;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x9700;&#x8981;shift+&#x9F20;&#x6807;&#x53F3;&#x952E;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x7A97;&#x53E3;</p>
+<h2 id="t52.4 &#x5B89;&#x88C5;gulp">2.4 &#x5B89;&#x88C5;gulp <a href="#t52.4 &#x5B89;&#x88C5;gulp"> # </a></h2>
+<p>$ npm install gulp --save-dev</p>
+<p>&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x628A; gulp &#x4F5C;&#x4E3A;&#x9879;&#x76EE;&#x7684;&#x5F00;&#x53D1;&#x4F9D;&#x8D56;(&#x53EA;&#x5728;&#x5F00;&#x53D1;&#x65F6;&#x7528;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D1;&#x5E03;&#x5230;&#x7EBF;&#x4E0A;)</p>
+<h1 id="t63 &#x8FD0;&#x884C;gulp">3 &#x8FD0;&#x884C;gulp <a href="#t63 &#x8FD0;&#x884C;gulp"> # </a></h1>
+<p>&#x5728;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x5F55;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>gulpfile.js</code>&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<h2 id="t73.1 &#x5F15;&#x5165;gulp&#x6A21;&#x5757;">3.1 &#x5F15;&#x5165;gulp&#x6A21;&#x5757; <a href="#t73.1 &#x5F15;&#x5165;gulp&#x6A21;&#x5757;"> # </a></h2>
+<p> &#x5728;gulpfile.js&#x6587;&#x4EF6;&#x4E2D;&#x8F93;&#x5165;</p>
+<pre><code>
+ var gulp=require(&apos;gulp&apos;);
+</code></pre><h2 id="t83.2 &#x521B;&#x5EFA;gulp&#x7684;&#x4EFB;&#x52A1;">3.2 &#x521B;&#x5EFA;gulp&#x7684;&#x4EFB;&#x52A1; <a href="#t83.2 &#x521B;&#x5EFA;gulp&#x7684;&#x4EFB;&#x52A1;"> # </a></h2>
+<pre><code>
+ gulp.task(&apos;hello&apos;,function(){
+    console.log(&quot;world&quot;);
+ })
+</code></pre><h2 id="t93.3 &#x6267;&#x884C;gulp&#x4EFB;&#x52A1;">3.3 &#x6267;&#x884C;gulp&#x4EFB;&#x52A1; <a href="#t93.3 &#x6267;&#x884C;gulp&#x4EFB;&#x52A1;"> # </a></h2>
+<p>&#x5728;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x8F93;&#x5165;gulp+taskName,&#x4E0D;&#x8F93;&#x5165;&#x4EFB;&#x52A1;&#x540D;&#x79F0;&#x7684;&#x8BDD;&#x4F1A;&#x9ED8;&#x8BA4;&#x627E;default&#x4EFB;&#x52A1;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x4F1A;&#x62A5;&#x9519;</p>
+<pre><code>
+$ gulp hello
+</code></pre><p>&#x4F1A;&#x8FD4;&#x56DE;</p>
+<pre><code>
+[21:36:34] Starting &apos;hello&apos;...
+    world
+[21:36:34] Finished &apos;hello&apos; after 559 &#x3BC;s
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
