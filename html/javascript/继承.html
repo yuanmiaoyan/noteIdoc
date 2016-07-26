@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Notes</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Study Notes
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li><li><a href="../../index.html">服务</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node入门(1)</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">http</a></li></ul></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../index.html">数组常用方法</a></li><li><a href="../../index.html">字符串常用方法</a></li><li><a href="../../index.html">html5</a></li><li><a href="../../index.html">继承</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li><a href="../../index.html">gulp</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0继承：常用的六种继承方式">继承：常用的六种继承方式</a><ul><li><a href="#t1前言">前言</a><ul><li><a href="#t2Object.create()方法">Object.create()方法</a></li></ul></li></ul></li><li><a href="#t3原型链">原型链</a><ul><li><a href="#t41 原型继承(*****)">1 原型继承(*****)</a></li><li><a href="#t52 call继承">2 call继承</a></li><li><a href="#t63 冒充对象继承">3 冒充对象继承</a></li><li><a href="#t74 混合模式继承：原型继承+call继承">4 混合模式继承：原型继承+call继承</a></li><li><a href="#t85 寄生组合继承">5 寄生组合继承</a></li><li><a href="#t96 中间继承">6 中间继承</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0&#x7EE7;&#x627F;&#xFF1A;&#x5E38;&#x7528;&#x7684;&#x516D;&#x79CD;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;">&#x7EE7;&#x627F;&#xFF1A;&#x5E38;&#x7528;&#x7684;&#x516D;&#x79CD;&#x7EE7;&#x627F;&#x65B9;&#x5F0F; <a href="#t0&#x7EE7;&#x627F;&#xFF1A;&#x5E38;&#x7528;&#x7684;&#x516D;&#x79CD;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;"> # </a></h1>
+<p>&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#xFF1A;
+&#x5B57;&#x9762;&#x91CF;&#x65B9;&#x5F0F;&#x548C;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x662F;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x7684;</p>
+<p>&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#xFF1A;
+var num=1;&#x4E0D;&#x662F;&#x4E25;&#x683C;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x53EA;&#x662F;&#x4E2A;&#x503C;
+var num=new Number(1);&#x4E25;&#x683C;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;
+&#x6709;&#x533A;&#x522B;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;</p>
+<p>num instanceOf Number;//false</p>
+<h2 id="t1&#x524D;&#x8A00;">&#x524D;&#x8A00; <a href="#t1&#x524D;&#x8A00;"> # </a></h2>
+<p>for in&#x904D;&#x5386;&#x4E0D;&#x5230;&#x5185;&#x7F6E;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x904D;&#x5386;&#x5230;&#x81EA;&#x5DF1;&#x5199;&#x5230;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x5C5E;&#x6027;</p>
+<p>toString&#x68C0;&#x6D4B;&#x6570;&#x636E;&#x7C7B;&#x578B;
+isPrototypeOf</p>
+<p>&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;
+properIsEnumerable&#x68C0;&#x6D4B;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x679A;&#x4E3E;&#xFF1B;
+&#x79C1;&#x6709;&#x7684;&#x53EF;&#x4EE5;&#x679A;&#x4E3E;&#xFF0C;&#x5728;&#x539F;&#x578B;&#x4E0A;&#xFF08;&#x5185;&#x7F6E;&#x6216;&#x81EA;&#x5DF1;&#x6269;&#x5C55;&#x7684;&#x65B9;&#x6CD5;&#xFF09;&#x7684;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;</p>
+<p>for in&#x5FAA;&#x73AF;&#x5728;&#x904D;&#x5386;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EF;&#x4EE5;&#x628A;&#x81EA;&#x5DF1;&#x79C1;&#x6709;&#x7684;&#x548C;&#x5728;&#x5B83;&#x6240;&#x5C5E;&#x7C7B;&#x539F;&#x578B;&#x4E0A;&#x6269;&#x5C55;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x904D;&#x5386;&#x5230;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x904D;&#x5386;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53EA;&#x9700;&#x8981;&#x904D;&#x5386;&#x79C1;&#x6709;&#x7684;&#x5373;&#x53EF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7684;&#x5224;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;
+if(obj.propertyIsEnumerabel(key)){
+    console.log(key)
+}</p>
+<h3 id="t2Object.create()&#x65B9;&#x6CD5;">Object.create()&#x65B9;&#x6CD5; <a href="#t2Object.create()&#x65B9;&#x6CD5;"> # </a></h3>
+<p>Object.create(proto,[propertiesObject])
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x62E5;&#x6709;&#x6307;&#x5B9A;&#x539F;&#x578B;&#x548C;&#x82E5;&#x5E72;&#x4E2A;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;</p>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x8981;&#x628A;proto&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x3002;
+//ie6-8&#x4E0D;&#x517C;&#x5BB9;&#xFF0C;ES5&#x65B0;&#x589E;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>&#x53C2;&#x6570;</p>
+<p>proto&#xFF1A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F5C;&#x4E3A;&#x65B0;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x3002;</p>
+<pre><code>
+//Object.create()&#x539F;&#x7406;
+    var obj={
+        getX:function(){
+
+        }
+    }
+    function object(o){
+        function Fn(){
+
+        }
+        FN.prototype=o;
+        return new Fn;
+    }
+    var newObj=object(obj)
+</code></pre><h1 id="t3&#x539F;&#x578B;&#x94FE;">&#x539F;&#x578B;&#x94FE; <a href="#t3&#x539F;&#x578B;&#x94FE;"> # </a></h1>
+<pre><code>//#div1.__proto__
+--&gt;HTMLDivElement.prototype
+--&gt;HTMLElement.prototype 
+--&gt;Elment.prototype
+--&gt;Node.prototype
+--&gt;EventTarget.prototype--&gt;Object.prototype
+</code></pre><p>//    &#x7528;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;&#x505A;&#x7684;
+    //&#x6A21;&#x62DF;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</p>
+<pre><code>
+-------------------
+function myObject(){
+
+}
+    myObject.prototype={
+        constructor:myObject,
+        hasOwnProperty:function hasOwnProperty(){
+
+        }
+}
+----------------------------
+    function myEventTarget(){
+
+    }
+    myEventTarget.prototype=new myObject();
+    myEventTarget.prototype.addEventListener=function(){
+
+    };
+-----------------------------
+    function myNode(){
+
+    }
+    myNode.prototype=new myEventTarget();
+    myNode.prototype.createElement=function(){
+
+    }
+    var n=new myNode();
+    console.log(n)
+    //---------
+    &#x5C0F;&#x6817;&#x5B50;&#xFF1A;
+    function A(){
+        this.x=100;
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+    function B(){
+        this.y=200;
+    }
+    B.prototype=new A();
+    B.prototype.constructor=B;
+</code></pre><h2 id="t41 &#x539F;&#x578B;&#x7EE7;&#x627F;(*****)">1 &#x539F;&#x578B;&#x7EE7;&#x627F;(*****) <a href="#t41 &#x539F;&#x578B;&#x7EE7;&#x627F;(*****)"> # </a></h2>
+<blockquote>
+<p>&#x539F;&#x578B;&#x7EE7;&#x627F;&#x662F;&#x6211;&#x4EEC;js&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;
+&#x5B50;&#x7C7B;b&#x60F3;&#x8981;&#x7EE7;&#x627F;&#x7236;&#x7C7B;a&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF08;&#x79C1;&#x6709;+&#x516C;&#x6709;&#xFF09;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8BA9;B.prototype=new A,&#x5373;&#x53EF;
+&#x539F;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x5B83;&#x662F;&#x628A;&#x7236;&#x7C7B;&#x4E2D;&#x79C1;&#x6709;&#x7684;+&#x516C;&#x6709;&#x7684;&#x90FD;&#x7EE7;&#x627F;&#x5230;&#x4E86;&#x5B50;&#x7C7B;&#x539F;&#x578B;&#x4E0A;&#xFF08;&#x5B50;&#x7C7B;&#x516C;&#x6709;&#x7684;&#xFF09;
+&#x6838;&#x5FC3;&#xFF1A;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x5E76;&#x4E0D;&#x662F;&#x628A;&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x514B;&#x9686;&#x4E00;&#x4EFD;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x7ED9;B&#xFF0C;&#x800C;&#x662F;&#x8BA9;B&#x548C;A&#x4E4B;&#x95F4;&#x589E;&#x52A0;&#x4E86;&#x539F;&#x578B;&#x94FE;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x4EE5;&#x540E;B&#x7684;&#x5B9E;&#x4F8B;n&#x60F3;&#x8981;A&#x4E2D;&#x7684;getX&#x65B9;&#x6CD5;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x7EA7;&#x7EA7;&#x7684;&#x5411;&#x4E0A;&#x67E5;&#x627E;&#x6765;&#x4F7F;&#x7528;
+&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#xFF0C;&#x5C01;&#x88C5;&#x548C;&#x591A;&#x6001;(&#x91CD;&#x5199;&#xFF1F;&#x91CD;&#x8F7D;)</p>
+</blockquote>
+<h2 id="t52 call&#x7EE7;&#x627F;">2 call&#x7EE7;&#x627F; <a href="#t52 call&#x7EE7;&#x627F;"> # </a></h2>
+<blockquote>
+<p>&#x7279;&#x70B9;&#xFF1A;call&#x7EE7;&#x627F;&#x628A;&#x7236;&#x7C7B;&#x79C1;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x514B;&#x9686;&#x4E00;&#x4EFD;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x4F5C;&#x4E3A;&#x5B50;&#x7C7B;&#x79C1;&#x6709;&#x7684;&#x5C5E;&#x6027;</p>
+</blockquote>
+<pre><code>
+   function A(){
+        this.x=100;
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+    function B(){
+       //this--&gt;n
+        A.call(this)//--&gt;A.call(n)&#x628A;A&#x6267;&#x884C;&#x8BA9;A&#x4E2D;&#x7684;this&#x53D8;&#x4E3A;&#x4E86;n
+    }
+    var n=new B();
+    console.log(n.x);
+</code></pre><h2 id="t63 &#x5192;&#x5145;&#x5BF9;&#x8C61;&#x7EE7;&#x627F;">3 &#x5192;&#x5145;&#x5BF9;&#x8C61;&#x7EE7;&#x627F; <a href="#t63 &#x5192;&#x5145;&#x5BF9;&#x8C61;&#x7EE7;&#x627F;"> # </a></h2>
+<blockquote>
+<p>&#x7279;&#x70B9;&#xFF1A;&#x628A;&#x7236;&#x7C7B;&#x516C;&#x6709;&#x7684;+&#x79C1;&#x6709;&#x7684;&#x514B;&#x9686;&#x4E00;&#x4EFD;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x7ED9;&#x5B50;&#x7C7B;</p>
+</blockquote>
+<pre><code>
+function A(){
+        this.x=100;
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+    function B(){
+        var temp=new A;//&#x628A;&#x5B9E;&#x4F8B;&#x5F53;&#x6210;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x904D;&#x5386;
+        for(var key in temp){
+            this[key]=temp[key];
+        }
+
+        temp=null;
+    }
+    var n=new B();
+    console.log(n.x);
+</code></pre><h2 id="t74 &#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x7EE7;&#x627F;&#xFF1A;&#x539F;&#x578B;&#x7EE7;&#x627F;+call&#x7EE7;&#x627F;">4 &#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x7EE7;&#x627F;&#xFF1A;&#x539F;&#x578B;&#x7EE7;&#x627F;+call&#x7EE7;&#x627F; <a href="#t74 &#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x7EE7;&#x627F;&#xFF1A;&#x539F;&#x578B;&#x7EE7;&#x627F;+call&#x7EE7;&#x627F;"> # </a></h2>
+<pre><code>    function A(){
+        this.x=100;
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+    function B(){
+//       this--&gt;n
+        A.call(this)//--&gt;A.call(n)&#x628A;A&#x6267;&#x884C;&#x8BA9;A&#x4E2D;&#x7684;this&#x53D8;&#x4E3A;&#x4E86;n
+    }
+    B.prototype=new A;
+    B.prototype.constructor=B;
+
+    var n=new B();
+    console.log(n.getX());
+</code></pre><h2 id="t85 &#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;">5 &#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F; <a href="#t85 &#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;"> # </a></h2>
+<blockquote>
+<p>&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x7EE7;&#x627F;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x7EE7;&#x627F;2&#x904D;&#x7684;&#x4E0D;&#x8DB3;</p>
+</blockquote>
+<pre><code>function A(){
+        this.x=100;
+
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+    function B(){
+//       this--&gt;n
+        A.call(this)//--&gt;A.call(n)&#x628A;A&#x6267;&#x884C;&#x8BA9;A&#x4E2D;&#x7684;this&#x53D8;&#x4E3A;&#x4E86;n
+    }
+    B.prototype=Object.create(A.prototype);
+    B.prototype.constructor=B;
+    var n=new B();
+    console.dir(n);
+    function ObjectCreate(o){
+        function fn(){
+
+        }
+        fn.prototype=o;
+        return new fn;
+    }
+</code></pre><h2 id="t96 &#x4E2D;&#x95F4;&#x7EE7;&#x627F;">6 &#x4E2D;&#x95F4;&#x7EE7;&#x627F; <a href="#t96 &#x4E2D;&#x95F4;&#x7EE7;&#x627F;"> # </a></h2>
+<blockquote>
+<p>&#x6709;&#x517C;&#x5BB9;&#x95EE;&#x9898;</p>
+</blockquote>
+<pre><code>
+function Arg(){
+    arguments.__proto__=Array.prototype
+}
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
