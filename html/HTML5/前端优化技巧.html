@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Notes</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Study Notes
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li><li><a href="../../index.html">服务</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node入门(1)</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">http</a></li></ul></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../index.html">数组常用方法</a></li><li><a href="../../index.html">字符串常用方法</a></li><li><a href="../../index.html">继承</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li><a href="../../index.html">gulp</a></li></ul></li><li><a href="#"><span></span>HTML5</a><ul><li><a href="../../index.html">html5</a></li><li><a href="../../index.html">响应式布局</a></li><li><a href="../../index.html">前端优化技巧</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01、减少HTTP请求">1、减少HTTP请求</a></li><li><a href="#t12、减少HTTP请求资源的大小">2、减少HTTP请求资源的大小</a></li><li><a href="#t23、代码优化">3、代码优化</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t01&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;">1&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42; <a href="#t01&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;"> # </a></h1>
+<blockquote>
+<ul>
+<li>&#x628A;CSS/JS&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x538B;&#x7F29;(&#x524D;&#x7AEF;&#x538B;&#x7F29;&#x4E00;&#x4E0B;,&#x670D;&#x52A1;&#x5668;&#x505A;&#x4E00;&#x4E0B;GZIP&#x538B;&#x7F29;),&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x53EA;&#x6709;&#x4E00;&#x4E2A;CSS/JS</li>
+<li>&#x5728;&#x79FB;&#x52A8;&#x7AEF;&#x9875;&#x9762;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;,&#x5982;&#x679C;CSS/JS&#x7684;&#x4EE3;&#x7801;&#x91CF;&#x4E0D;&#x662F;&#x5F88;&#x591A;&#x7684;&#x8BDD;,&#x6211;&#x4EEC;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;&#x5185;&#x5D4C;&#x5F0F;</li>
+<li>&#x6570;&#x636E;&#x7F13;&#x5B58;(localStorage):&#x628A;&#x6211;&#x4EEC;&#x7684;CSS/JS&#x4EE3;&#x7801;&#x5B58;&#x50A8;&#x5230;&#x672C;&#x5730;,&#x4E0B;&#x4E00;&#x6B21;&#x5237;&#x65B0;&#x9875;&#x9762;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7684;&#x5728;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x4E2D;&#x8BFB;&#x53D6;&#x5373;&#x53EF;,&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x7684;&#x53D1;&#x9001;HTTP&#x8BF7;&#x6C42;&#x4E86;(&#x9700;&#x8981;&#x66F4;&#x65B0;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;JS&#x7684;&#x7248;&#x672C;&#x53F7;&#x6765;&#x5B9E;&#x73B0;&#x66F4;&#x65B0;)</li>
+</ul>
+</blockquote>
+<p> [&#x56FE;&#x7247;]</p>
+<blockquote>
+<ul>
+<li>CSS SPRITE &#x628A;&#x9759;&#x6001;&#x7684;&#x8D44;&#x6E90;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x5408;&#x5E76;,&#x5408;&#x5E76;&#x5230;&#x4E00;&#x5F20;&#x5927;&#x56FE;&#x4E0A;,&#x901A;&#x8FC7;POSITION&#x5B9A;&#x4F4D;&#x627E;&#x5230;&#x5177;&#x4F53;&#x7684;&#x56FE;&#x7247;,&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x53EA;&#x9700;&#x8981;&#x53D1;&#x9001;&#x4E00;&#x6B21;HTTP&#x8BF7;&#x6C42;&#x5373;&#x53EF;</li>
+<li>&#x5728;&#x79FB;&#x52A8;&#x7AEF;&#x80FD;&#x591F;&#x7528;&#x4EE3;&#x7801;(SVG)&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x7684;&#x56FE;&#x7247;&#x6211;&#x4EEC;&#x5C3D;&#x91CF;&#x4E0D;&#x4F7F;&#x7528;IMG&#x6765;&#x505A;</li>
+<li>&#x56FE;&#x7247;&#x7684;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#xFF1A;&#x9996;&#x5C4F;&#x56FE;&#x7247;&#x7B49;&#x5230;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5728;&#x8FDB;&#x884C;&#x52A0;&#x8F7D;,&#x5176;&#x5B83;&#x5C4F;&#x5E55;&#x7684;&#x56FE;&#x7247;&#x5F53;&#x9875;&#x9762;&#x6EDA;&#x52A8;&#x5230;&#x5BF9;&#x5E94;&#x533A;&#x57DF;&#x7684;&#x65F6;&#x5019;&#x5728;&#x8FDB;&#x884C;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;</li>
+<li>&#x5728;&#x8FEB;&#x4E0D;&#x5F97;&#x5DF2;&#x7684;&#x60C5;&#x51B5;&#x4E0B;,&#x6211;&#x4EEC;&#x7684;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x5927;&#x56FE;&#x53EF;&#x91C7;&#x7528;BASE64&#x6280;&#x672F;&#x8FDB;&#x884C;&#x7F16;&#x7801;</li>
+</ul>
+</blockquote>
+<p>--&#x6570;&#x636E;&#x7684;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;:&#x7B2C;&#x4E00;&#x6B21;&#x53EA;&#x8BF7;&#x6C42;&#x51FA;&#x90E8;&#x5206;&#x6570;&#x636E;(&#x4E00;&#x822C;&#x90FD;&#x662F;&#x4E00;&#x5230;&#x4E24;&#x5C4F;&#x5E55;&#x7684;&#x6570;&#x636E;),&#x5F53;&#x6211;&#x4EEC;&#x6EDA;&#x52A8;&#x5230;&#x7684;&#x5E95;&#x90E8;&#x7684;&#x65F6;&#x5019;&#x5728;&#x5F00;&#x59CB;&#x52A0;&#x8F7D;&#x4E0B;&#x9762;&#x7684;&#x4E24;&#x5C4F;&#x5E55;&#x6570;&#x636E;(&#x4E0A;&#x62C9;/&#x4E0B;&#x62C9;&#x5237;&#x65B0;)</p>
+<p>--&#x6570;&#x636E;&#x7F13;&#x5B58;(localStorage):&#x7B2C;&#x4E00;&#x6B21;&#x628A;&#x8BF7;&#x6C42;&#x56DE;&#x6765;&#x7684;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x672C;&#x5730;,&#x5728;&#x6709;&#x6548;&#x65F6;&#x95F4;&#x5185;,&#x6211;&#x4EEC;&#x5237;&#x65B0;&#x9875;&#x9762;&#x7684;&#x65F6;&#x5019;,&#x53EA;&#x9700;&#x8981;&#x628A;&#x672C;&#x5730;&#x7684;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x5230;&#x7ED1;&#x5B9A;&#x5230;&#x9875;&#x9762;&#x4E2D;&#x5373;&#x53EF;,&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x7684;&#x53D1;&#x9001;Ajax&#x8BF7;&#x6C42;,&#x76F4;&#x5230;&#x65F6;&#x95F4;&#x8FC7;&#x671F;,&#x5728;&#x4ECE;&#x65B0;&#x7684;&#x53D1;&#x9001;&#x8BF7;&#x6C42;,&#x7528;&#x6700;&#x65B0;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x66FF;&#x6362;&#x672C;&#x5730;&#x4E4B;&#x524D;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;...</p>
+<blockquote>
+<ul>
+<li>&#x628A;&#x97F3;&#x89C6;&#x9891;&#x64AD;&#x653E;&#x8FDB;&#x884C;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;(PRELOAD=&apos;NONE&apos;),&#x5728;JS&#x4E2D;&#x505A;&#x5EF6;&#x8FDF;&#x64AD;&#x653E;,&#x64AD;&#x653E;&#x7684;&#x65F6;&#x5019;&#x5728;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x628A;&#x97F3;&#x89C6;&#x9891;&#x90FD;&#x7528;&#x6587;&#x4EF6;&#x6D41;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;;</li>
+</ul>
+</blockquote>
+<h1 id="t12&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x7684;&#x5927;&#x5C0F;">2&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x7684;&#x5927;&#x5C0F; <a href="#t12&#x3001;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x7684;&#x5927;&#x5C0F;"> # </a></h1>
+<blockquote>
+<ul>
+<li>CSS/JS&#x53BB;&#x9664;&#x5197;&#x4F59;&#x4EE3;&#x7801;(&#x4F4E;&#x8026;&#x5408;&#x9AD8;&#x5185;&#x805A;) -&gt;&#x96C5;&#x864E;&#x4F18;&#x5316;34&#x6761;&#x5EFA;&#x8BAE;(&#x5173;&#x4E8E;CSS)</li>
+<li>&#x56FE;&#x7247;&#x5C3D;&#x91CF;&#x538B;&#x7F29;</li>
+<li>&#x6BCF;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x56DE;&#x6765;&#x7684;&#x6570;&#x636E;&#x5C3D;&#x91CF;&#x5C11;&#x4E00;&#x4E9B;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5206;&#x6279;&#x8BF7;&#x6C42;</li>
+<li>&#x6240;&#x6709;&#x7684;CSS/JS&#x4E0A;&#x4F20;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x90FD;&#x662F;&#x7ECF;&#x8FC7;&#x538B;&#x7F29;&#x8FC7;&#x7684;</li>
+</ul>
+</blockquote>
+<h1 id="t23&#x3001;&#x4EE3;&#x7801;&#x4F18;&#x5316;">3&#x3001;&#x4EE3;&#x7801;&#x4F18;&#x5316; <a href="#t23&#x3001;&#x4EE3;&#x7801;&#x4F18;&#x5316;"> # </a></h1>
+<blockquote>
+<ul>
+<li>&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x4E0D;&#x9500;&#x6BC1;&#x95ED;&#x5305;&#x7684;&#x4F7F;&#x7528;(&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x4E00;&#x4E0B;&#x5806;&#x6808;&#x5185;&#x5B58;&#x7684;&#x91CA;&#x653E;&#x95EE;&#x9898;)</li>
+<li>&#x5C3D;&#x91CF;&#x591A;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;,&#x5C11;&#x4F7F;&#x7528;&#x540C;&#x6B65;&#x7F16;&#x7A0B;</li>
+</ul>
+</blockquote>
+<p>&#x79FB;&#x52A8;&#x7AEF;&#x5F00;&#x53D1;,&#x80FD;&#x591F;&#x4F7F;&#x7528;CSS&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x6700;&#x597D;&#x4E5F;&#x4E0D;&#x7528;JS;&#x80FD;&#x591F;&#x4F7F;&#x7528;CSS3&#x5B9E;&#x73B0;&#x7684;&#x52A8;&#x753B;,&#x7EDD;&#x5BF9;&#x4E0D;&#x7528;JS;&#x80FD;&#x7528;TransForm&#x5B9E;&#x73B0;&#x7684;&#x52A8;&#x753B;&#x5C3D;&#x91CF;&#x7528;&#x5B83;&#x5B9E;&#x73B0;(TransForm&#x5F00;&#x542F;&#x4E86;&#x786C;&#x4EF6;&#x52A0;&#x901F;);&#x80FD;&#x591F;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#x539F;&#x751F;&#x7684;JS&#x5B9E;&#x73B0;&#x7684;,&#x7EDD;&#x5BF9;&#x4E0D;&#x7528;&#x4EFB;&#x4F55;&#x7684;&#x6846;&#x67B6;&#x6216;&#x8005;&#x7C7B;&#x5E93;(&#x591A;&#x4EBA;&#x5F00;&#x53D1;,&#x9879;&#x76EE;&#x504F;&#x5927;,&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x76F8;&#x5173;&#x7684;&#x6846;&#x67B6;);</p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

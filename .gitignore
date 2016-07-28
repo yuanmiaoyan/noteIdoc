@@ -19,4 +19,5 @@ Thumbs.db
 .build
 node_modules
 .cache
-idoc-theme-*/*.md/
+idoc-theme-*/
+md
