@@ -37,7 +37,8 @@
                 "javascript": [
                     "数组常用方法.md",
                     "字符串常用方法.md",
-                    "继承.md"
+                    "继承.md",
+                    "ECMAScript6.md"
                 ]
             },
             {

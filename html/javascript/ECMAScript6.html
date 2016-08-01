@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Notes</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                Study Notes
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="../../index.html">DOM2基础原理</a></li><li><a href="#"><span></span>angualr</a><ul><li><a href="../../index.html">angualr基础</a></li><li><a href="../../index.html">一切从模块开始</a></li><li><a href="../../index.html">angular之directive</a></li><li><a href="../../index.html">服务</a></li></ul></li><li><a href="#"><span></span>node</a><ul><li><a href="../../index.html">node入门(2)</a></li><li><a href="../../index.html">node入门(1)</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">http</a></li></ul></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../index.html">数组常用方法</a></li><li><a href="../../index.html">字符串常用方法</a></li><li><a href="../../index.html">继承</a></li><li><a href="../../index.html">ECMAScript6</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li><a href="../../index.html">gulp</a></li></ul></li><li><a href="#"><span></span>HTML5</a><ul><li><a href="../../index.html">html5</a></li><li><a href="../../index.html">响应式布局</a></li><li><a href="../../index.html">前端优化技巧</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. 作用域变量">1. 作用域变量</a><ul><li><a href="#t11.1 var的问题">1.1 var的问题</a></li><li><a href="#t21.2 块级作用域 -- let">1.2 块级作用域 -- let</a><ul><li><a href="#t31.2.1 实现块级作用域">1.2.1 实现块级作用域</a></li><li><a href="#t41.2.2 不会污染全局变量">1.2.2 不会污染全局变量</a></li><li><a href="#t51.2.3 for循环中也可以使用i">1.2.3 for循环中也可以使用i</a></li><li><a href="#t61.2.4 重复定义会报错">1.2.4 重复定义会报错</a></li><li><a href="#t71.2.5 不存在变量的预解释">1.2.5 不存在变量的预解释</a></li><li><a href="#t81.2.6 闭包的新写法">1.2.6 闭包的新写法</a></li></ul></li></ul></li><li><a href="#t92. 常量-- const">2. 常量-- const</a><ul><li><a href="#t102.1 常量不能重新赋值">2.1 常量不能重新赋值</a></li><li><a href="#t112.2 变量值可改变">2.2 变量值可改变</a></li><li><a href="#t122.3 不同的块级作用域常量可以多次定义">2.3 不同的块级作用域常量可以多次定义</a></li></ul></li><li><a href="#t133. 解构">3. 解构</a><ul><li><a href="#t143.1 解析数组">3.1 解析数组</a><ul><li><a href="#t153.1.1 嵌套赋值">3.1.1 嵌套赋值</a></li><li><a href="#t163.1.2 省略赋值">3.1.2 省略赋值</a></li></ul></li><li><a href="#t173.2 解构对象">3.2 解构对象</a></li><li><a href="#t183.3 默认值">3.3 默认值</a></li></ul></li><li><a href="#t194. 字符串">4. 字符串</a><ul><li><a href="#t204.1 模板字符串">4.1 模板字符串</a></li><li><a href="#t214.2 带标签的模板字符串">4.2 带标签的模板字符串</a></li></ul></li><li><a href="#t225 函数">5 函数</a><ul><li><a href="#t235.1 默认参数">5.1 默认参数</a></li><li><a href="#t245.2 展开操作符">5.2 展开操作符</a></li><li><a href="#t255.3 剩余操作符">5.3 剩余操作符</a></li><li><a href="#t265.4 解构参数">5.4 解构参数</a></li><li><a href="#t275.5 函数的名字">5.5 函数的名字</a></li><li><a href="#t285.6 箭头函数">5.6 箭头函数</a></li><li><a href="#t295.7 函数新方法">5.7 函数新方法</a><ul><li><a href="#t305.7.1 from">5.7.1 from</a></li><li><a href="#t315.7.2 Array.of">5.7.2 Array.of</a></li><li><a href="#t325.7.3 copyWhithin">5.7.3 copyWhithin</a></li><li><a href="#t335.7.4 find/findIndex">5.7.4 find/findIndex</a></li><li><a href="#t345.7.5 fill">5.7.5 fill</a></li></ul></li></ul></li><li><a href="#t356 对象">6 对象</a><ul><li><a href="#t366.1 对象字面量">6.1 对象字面量</a></li><li><a href="#t376.2 Object.is">6.2 Object.is</a></li><li><a href="#t386.3 Object.assign">6.3 Object.assign</a></li><li><a href="#t396.4 Object.setPrototypeOf">6.4 Object.setPrototypeOf</a></li><li><a href="#t406.5 proto">6.5 proto</a></li><li><a href="#t416.6 super">6.6 super</a></li></ul></li><li><a href="#t427 Symbol">7 Symbol</a></li><li><a href="#t438 生成器与迭代器">8 生成器与迭代器</a></li><li><a href="#t449 类">9 类</a><ul><li><a href="#t459.1 class">9.1 class</a></li><li><a href="#t469.2 get/set">9.2 get/set</a></li><li><a href="#t479.3 static">9.3 static</a></li><li><a href="#t489.4 extends">9.4 extends</a></li><li><a href="#t4910.1 Set">10.1 Set</a></li><li><a href="#t5010.2 Map">10.2 Map</a></li></ul></li><li><a href="#t5111 模块">11 模块</a><ul><li><a href="#t5211.1 导出和导入">11.1 导出和导入</a></li><li><a href="#t5311.2 重命名">11.2 重命名</a></li><li><a href="#t5411.3 默认导出">11.3 默认导出</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <p>es6</p>
+<p>&#x4E00;&#x5957;&#x6807;&#x51C6;&#xFF0C;js&#x5B9E;&#x65BD;&#x4E86;&#x8FD9;&#x5957;&#x6807;&#x51C6;&#xFF0C;&#x4E3B;&#x6D41;&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x7684;ECMAScript5&#x3002;</p>
+<h1 id="t01. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF;">1. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF; <a href="#t01. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF;"> # </a></h1>
+<h2 id="t11.1 var&#x7684;&#x95EE;&#x9898;">1.1 var&#x7684;&#x95EE;&#x9898; <a href="#t11.1 var&#x7684;&#x95EE;&#x9898;"> # </a></h2>
+<p>&#x6CA1;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</p>
+<h2 id="t21.2 &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF; -- let">1.2 &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF; -- let <a href="#t21.2 &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF; -- let"> # </a></h2>
+<h3 id="t31.2.1 &#x5B9E;&#x73B0;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;">1.2.1 &#x5B9E;&#x73B0;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF; <a href="#t31.2.1 &#x5B9E;&#x73B0;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;"> # </a></h3>
+<p>&#x4E00;&#x7EC4;&#x5927;&#x62EC;&#x53F7;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5757;&#xFF0C;&#x4F7F;&#x7528;let&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x5728;&#x5927;&#x62EC;&#x53F7;&#x7684;&#x5916;&#x9762;&#x662F;&#x8BBF;&#x95EE;&#x4E0D;&#x5230;&#x7684;</p>
+<h3 id="t41.2.2 &#x4E0D;&#x4F1A;&#x6C61;&#x67D3;&#x5168;&#x5C40;&#x53D8;&#x91CF;">1.2.2 &#x4E0D;&#x4F1A;&#x6C61;&#x67D3;&#x5168;&#x5C40;&#x53D8;&#x91CF; <a href="#t41.2.2 &#x4E0D;&#x4F1A;&#x6C61;&#x67D3;&#x5168;&#x5C40;&#x53D8;&#x91CF;"> # </a></h3>
+<h3 id="t51.2.3 for&#x5FAA;&#x73AF;&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;i">1.2.3 for&#x5FAA;&#x73AF;&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;i <a href="#t51.2.3 for&#x5FAA;&#x73AF;&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;i"> # </a></h3>
+<p>&#x5D4C;&#x5957;&#x5FAA;&#x73AF;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5F71;&#x54CD;</p>
+<h3 id="t61.2.4 &#x91CD;&#x590D;&#x5B9A;&#x4E49;&#x4F1A;&#x62A5;&#x9519;">1.2.4 &#x91CD;&#x590D;&#x5B9A;&#x4E49;&#x4F1A;&#x62A5;&#x9519; <a href="#t61.2.4 &#x91CD;&#x590D;&#x5B9A;&#x4E49;&#x4F1A;&#x62A5;&#x9519;"> # </a></h3>
+<h3 id="t71.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA;">1.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA; <a href="#t71.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA;"> # </a></h3>
+<h3 id="t81.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5;">1.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5; <a href="#t81.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5;"> # </a></h3>
+<p>&#x5199;&#x4E2A;&#x5927;&#x62EC;&#x53F7;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<h1 id="t92. &#x5E38;&#x91CF;-- const">2. &#x5E38;&#x91CF;-- const <a href="#t92. &#x5E38;&#x91CF;-- const"> # </a></h1>
+<h2 id="t102.1 &#x5E38;&#x91CF;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x8D4B;&#x503C;">2.1 &#x5E38;&#x91CF;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x8D4B;&#x503C; <a href="#t102.1 &#x5E38;&#x91CF;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x8D4B;&#x503C;"> # </a></h2>
+<h2 id="t112.2 &#x53D8;&#x91CF;&#x503C;&#x53EF;&#x6539;&#x53D8;">2.2 &#x53D8;&#x91CF;&#x503C;&#x53EF;&#x6539;&#x53D8; <a href="#t112.2 &#x53D8;&#x91CF;&#x503C;&#x53EF;&#x6539;&#x53D8;"> # </a></h2>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;const&#x9650;&#x5236;&#x7684;&#x662F;&#x4E0D;&#x80FD;&#x7ED9;&#x53D8;&#x91CF;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x6BD4;&#x5982;&#x5BF9;&#x8C61;&#xFF0C;&#x6570;&#x7EC4;&#x7B49;&#xFF0C;&#x4E0D;&#x6539;&#x53D8;&#x6307;&#x5411;&#xFF0C;&#x8FDB;&#x884C;&#x589E;&#x5220;&#x6539;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x53EF;&#x4EE5;&#x7684;</p>
+</blockquote>
+<h2 id="t122.3 &#x4E0D;&#x540C;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x5B9A;&#x4E49;">2.3 &#x4E0D;&#x540C;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x5B9A;&#x4E49; <a href="#t122.3 &#x4E0D;&#x540C;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x5B9A;&#x4E49;"> # </a></h2>
+<h1 id="t133. &#x89E3;&#x6784;">3. &#x89E3;&#x6784; <a href="#t133. &#x89E3;&#x6784;"> # </a></h1>
+<h2 id="t143.1 &#x89E3;&#x6790;&#x6570;&#x7EC4;">3.1 &#x89E3;&#x6790;&#x6570;&#x7EC4; <a href="#t143.1 &#x89E3;&#x6790;&#x6570;&#x7EC4;"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;N&#x4E2A;&#x53D8;&#x91CF;&#x3002;</p>
+<pre><code>
+&#x4F8B;&#x5982;&#xFF1A;var = [name,age]=[&apos;wendy&apos;,20];
+</code></pre><h3 id="t153.1.1 &#x5D4C;&#x5957;&#x8D4B;&#x503C;">3.1.1 &#x5D4C;&#x5957;&#x8D4B;&#x503C; <a href="#t153.1.1 &#x5D4C;&#x5957;&#x8D4B;&#x503C;"> # </a></h3>
+<pre><code>
+let [x, [y], z] = [1, [2.1, 2.2]];
+    console.log(x, y, z);
+
+let [x, [y,z]] = [1, [2.1, 2.2]];
+    console.log(x,y,z);
+</code></pre><h3 id="t163.1.2 &#x7701;&#x7565;&#x8D4B;&#x503C;">3.1.2 &#x7701;&#x7565;&#x8D4B;&#x503C; <a href="#t163.1.2 &#x7701;&#x7565;&#x8D4B;&#x503C;"> # </a></h3>
+<pre><code>let [, , x] = [1, 2, 3];
+console.log(x);
+</code></pre><h2 id="t173.2 &#x89E3;&#x6784;&#x5BF9;&#x8C61;">3.2 &#x89E3;&#x6784;&#x5BF9;&#x8C61; <a href="#t173.2 &#x89E3;&#x6784;&#x5BF9;&#x8C61;"> # </a></h2>
+<h2 id="t183.3 &#x9ED8;&#x8BA4;&#x503C;">3.3 &#x9ED8;&#x8BA4;&#x503C; <a href="#t183.3 &#x9ED8;&#x8BA4;&#x503C;"> # </a></h2>
+<p>&#x5728;&#x8D4B;&#x503C;&#x548C;&#x4F20;&#x53C2;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;</p>
+<h1 id="t194. &#x5B57;&#x7B26;&#x4E32;">4. &#x5B57;&#x7B26;&#x4E32; <a href="#t194. &#x5B57;&#x7B26;&#x4E32;"> # </a></h1>
+<h2 id="t204.1 &#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;">4.1 &#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32; <a href="#t204.1 &#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;"> # </a></h2>
+<p>&#x6240;&#x6709;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7A7A;&#x683C;&#x548C;&#x6362;&#x884C;&#xFF0C;&#x90FD;&#x662F;&#x88AB;&#x4FDD;&#x7559;&#x7684;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x7528;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x66FF;&#x6362;&#x6389;</p>
+<h2 id="t214.2 &#x5E26;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;">4.2 &#x5E26;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32; <a href="#t214.2 &#x5E26;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;"> # </a></h2>
+<pre><code>var name = &apos;zfpx&apos;,age = 8;
+function desc(strings,...values){
+    console.log(strings,values);
+}
+desc`${name} is ${age} old!`;
+&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF1A;
+[&quot;&quot;, &quot; is &quot;, &quot; old!&quot;, raw: Array[3]] [&quot;zfpx&quot;, 8]
+</code></pre><p>4.3 &#x5B57;&#x7B26;&#x4E32;&#x65B0;&#x65B9;&#x6CD5;</p>
+<p>includes():&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x662F;&#x5426;&#x627E;&#x5230;&#x4E86;&#x53C2;&#x6570;&#x5B57;&#x7B26;&#x4E32;
+startsWith():&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x5728;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#x3002;
+endsWith():&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x5728;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x9700;&#x8981;&#x67E5;&#x627E;&#x7684;&#x5B57;&#x7B26;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x8868;&#x793A;&#x5F00;&#x59CB;&#x641C;&#x7D22;&#x7684;&#x4F4D;&#x7F6E;&#x7D22;&#x5F15;&#x3002;</p>
+<p>4.4 repeat
+repeat&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x5C06;&#x539F;&#x5B57;&#x7B26;&#x4E32;&#x91CD;&#x590D;n&#x6B21;&#x3002;</p>
+<h1 id="t225 &#x51FD;&#x6570;">5 &#x51FD;&#x6570; <a href="#t225 &#x51FD;&#x6570;"> # </a></h1>
+<h2 id="t235.1 &#x9ED8;&#x8BA4;&#x53C2;&#x6570;">5.1 &#x9ED8;&#x8BA4;&#x53C2;&#x6570; <a href="#t235.1 &#x9ED8;&#x8BA4;&#x53C2;&#x6570;"> # </a></h2>
+<p>&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x4F20;&#x503C;&#x65F6;&#x4F7F;&#x7528;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</p>
+<h2 id="t245.2 &#x5C55;&#x5F00;&#x64CD;&#x4F5C;&#x7B26;">5.2 &#x5C55;&#x5F00;&#x64CD;&#x4F5C;&#x7B26; <a href="#t245.2 &#x5C55;&#x5F00;&#x64CD;&#x4F5C;&#x7B26;"> # </a></h2>
+<p>...[1,2,3]----&gt;1,2,3&#x3002;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x4F7F;&#x7528;apply&#x4F20;&#x6570;&#x7EC4;&#x4E86;</p>
+<h2 id="t255.3 &#x5269;&#x4F59;&#x64CD;&#x4F5C;&#x7B26;">5.3 &#x5269;&#x4F59;&#x64CD;&#x4F5C;&#x7B26; <a href="#t255.3 &#x5269;&#x4F59;&#x64CD;&#x4F5C;&#x7B26;"> # </a></h2>
+<h2 id="t265.4 &#x89E3;&#x6784;&#x53C2;&#x6570;">5.4 &#x89E3;&#x6784;&#x53C2;&#x6570; <a href="#t265.4 &#x89E3;&#x6784;&#x53C2;&#x6570;"> # </a></h2>
+<p>&#x540C;&#x4E0A;&#x89E3;&#x6784;&#xFF0C;&#x53EA;&#x662F;&#x6362;&#x6210;&#x4E86;&#x51FD;&#x6570;&#xFF0C;&#x539F;&#x7406;&#x76F8;&#x540C;</p>
+<h2 id="t275.5 &#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;">5.5 &#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57; <a href="#t275.5 &#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;"> # </a></h2>
+<pre><code>var desc = function descname(){}
+console.log(desc.name);---&gt;descname
+</code></pre><h2 id="t285.6 &#x7BAD;&#x5934;&#x51FD;&#x6570;">5.6 &#x7BAD;&#x5934;&#x51FD;&#x6570; <a href="#t285.6 &#x7BAD;&#x5934;&#x51FD;&#x6570;"> # </a></h2>
+<p>()=&gt;{}&#x53EF;&#x4EE5;&#x907F;&#x514D;this&#x6307;&#x5411;&#x95EE;&#x9898;
+function(){}</p>
+<h2 id="t295.7 &#x51FD;&#x6570;&#x65B0;&#x65B9;&#x6CD5;">5.7 &#x51FD;&#x6570;&#x65B0;&#x65B9;&#x6CD5; <a href="#t295.7 &#x51FD;&#x6570;&#x65B0;&#x65B9;&#x6CD5;"> # </a></h2>
+<h3 id="t305.7.1 from">5.7.1 from <a href="#t305.7.1 from"> # </a></h3>
+<p>&#x5C06;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x6216;&#x8005;&#x7C7B;&#x6570;&#x7EC4;&#x53D8;&#x6210;&#x6570;&#x7EC4;,&#x4F1A;&#x590D;&#x5236;&#x4E00;&#x4EFD;</p>
+<pre><code>let newArr = Array.from(oldArr);
+</code></pre><h3 id="t315.7.2 Array.of">5.7.2 Array.of <a href="#t315.7.2 Array.of"> # </a></h3>
+<p>&#x5C06;&#x4E00;&#x7EC4;&#x6570;&#x503C;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;</p>
+<h3 id="t325.7.3 copyWhithin">5.7.3 copyWhithin <a href="#t325.7.3 copyWhithin"> # </a></h3>
+<pre><code>[1, 2, 3, 4, 5].copyWithin(0, 1, 2);
+</code></pre><p>0&#x4E3A;&#x66FF;&#x6362;&#x5F00;&#x59CB;&#x7684;&#x4F4D;&#x7F6E;
+1&#x548C;2&#x4E3A;&#x9700;&#x8981;&#x7684;&#x503C;&#xFF0C;&#x7528;&#x6765;&#x66FF;&#x6362;0&#x5F00;&#x59CB;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x503C;&#xFF0C;&#x6709;&#x51E0;&#x4E2A;&#x4ECE;0&#x5F80;&#x540E;&#x66FF;&#x6362;&#x51E0;&#x4E2A;</p>
+<h3 id="t335.7.4 find/findIndex">5.7.4 find/findIndex <a href="#t335.7.4 find/findIndex"> # </a></h3>
+<p>&#x67E5;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5143;&#x7D20;&#x548C;&#x7D22;&#x5F15;,&#x627E;&#x5230;&#x5C31;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x67E5;&#x627E;</p>
+<h3 id="t345.7.5 fill">5.7.5 fill <a href="#t345.7.5 fill"> # </a></h3>
+<pre><code>&#x586B;&#x5145;&#x6570;&#x7EC4; Array.prototype.fill(value, start, end = this.length);
+</code></pre><p>this.length&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;&#x591A;&#x5C11;&#x4E2A;&#x6570;&#x7684;&#x4F4D;&#x7F6E;</p>
+<h1 id="t356 &#x5BF9;&#x8C61;">6 &#x5BF9;&#x8C61; <a href="#t356 &#x5BF9;&#x8C61;"> # </a></h1>
+<h2 id="t366.1 &#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;">6.1 &#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF; <a href="#t366.1 &#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;"> # </a></h2>
+<pre><code>
+let name = &apos;zfpx&apos;;
+let age = 8;
+let getName = function(){
+    console.log(this.name);
+}
+let person = {
+    name,
+    age,
+    getName
+}
+person.getName();
+</code></pre><h2 id="t376.2 Object.is">6.2 Object.is <a href="#t376.2 Object.is"> # </a></h2>
+<p>&#x5BF9;&#x6BD4;&#x4E24;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x76F8;&#x7B49;</p>
+<h2 id="t386.3 Object.assign">6.3 Object.assign <a href="#t386.3 Object.assign"> # </a></h2>
+<pre><code>Object.assign(obj,nameObj,ageObj);
+&#x628A;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x590D;&#x5236;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;
+</code></pre><h2 id="t396.4 Object.setPrototypeOf">6.4 Object.setPrototypeOf <a href="#t396.4 Object.setPrototypeOf"> # </a></h2>
+<pre><code>var obj1  = {name:&apos;zfpx1&apos;};
+var obj2 =  {name:&apos;zfpx2&apos;};
+var obj = {};
+Object.setPrototypeOf(obj,obj1);
+console.log(obj.name);
+console.log(Object.getPrototypeOf(obj));
+Object.setPrototypeOf(obj,obj2);
+console.log(obj.name);
+console.log(Object.getPrototypeOf(obj));
+</code></pre><p>&#x628A;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x8BBE;&#x7F6E;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x8005;null</p>
+<h2 id="t406.5 proto">6.5 proto <a href="#t406.5 proto"> # </a></h2>
+<pre><code>var obj1  = {name:&apos;zfpx1&apos;};
+var obj3 = {
+    __proto__:obj1
+}
+console.log(obj3.name);
+console.log(Object.getPrototypeOf(obj3));
+</code></pre><h2 id="t416.6 super">6.6 super <a href="#t416.6 super"> # </a></h2>
+<pre><code>let person ={
+    eat(){
+        return &apos;milk&apos;;
+    }
+}
+let student = {
+    __proto__:person,
+    eat(){
+        return super.eat()+&apos; bread&apos;
+    }
+}
+console.log(student.eat());
+</code></pre><p>&#x901A;&#x8FC7;super&#x53EF;&#x4EE5;&#x8C03;&#x7528;prototype&#x4E0A;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x65B9;&#x6CD5;</p>
+<h1 id="t427 Symbol">7 Symbol <a href="#t427 Symbol"> # </a></h1>
+<h1 id="t438 &#x751F;&#x6210;&#x5668;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;">8 &#x751F;&#x6210;&#x5668;&#x4E0E;&#x8FED;&#x4EE3;&#x5668; <a href="#t438 &#x751F;&#x6210;&#x5668;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;"> # </a></h1>
+<h1 id="t449 &#x7C7B;">9 &#x7C7B; <a href="#t449 &#x7C7B;"> # </a></h1>
+<h2 id="t459.1 class">9.1 class <a href="#t459.1 class"> # </a></h2>
+<h2 id="t469.2 get/set">9.2 get/set <a href="#t469.2 get/set"> # </a></h2>
+<h2 id="t479.3 static">9.3 static <a href="#t479.3 static"> # </a></h2>
+<p>&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5B9E;&#x4F8B;&#x5316;&#x7C7B;&#x5C31;&#x80FD;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;</p>
+<h2 id="t489.4 extends">9.4 extends <a href="#t489.4 extends"> # </a></h2>
+<p>&#x7EE7;&#x627F;</p>
+<p>#10 &#x96C6;&#x5408;</p>
+<h2 id="t4910.1 Set">10.1 Set <a href="#t4910.1 Set"> # </a></h2>
+<p>&#x4E00;&#x4E2A;Set&#x662F;&#x4E00;&#x5806;&#x4E1C;&#x897F;&#x7684;&#x96C6;&#x5408;,Set&#x6709;&#x70B9;&#x50CF;&#x6570;&#x7EC4;,&#x4E0D;&#x8FC7;&#x8DDF;&#x6570;&#x7EC4;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x662F;&#xFF0C;Set&#x91CC;&#x9762;&#x4E0D;&#x80FD;&#x6709;&#x91CD;&#x590D;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code>var books = new Set();
+books.add(&apos;js&apos;);
+books.add(&apos;js&apos;);//&#x6DFB;&#x52A0;&#x91CD;&#x590D;&#x5143;&#x7D20;&#x96C6;&#x5408;&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;
+books.add(&apos;html&apos;);
+books.forEach(function(book){//&#x5FAA;&#x73AF;&#x96C6;&#x5408;
+    console.log(book);
+})
+console.log(books.size);//&#x96C6;&#x5408;&#x4E2D;&#x5143;&#x6570;&#x7684;&#x4E2A;&#x6570;
+console.log(books.has(&apos;js&apos;));//&#x5224;&#x65AD;&#x96C6;&#x5408;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x6B64;&#x5143;&#x7D20;
+books.delete(&apos;js&apos;);//&#x4ECE;&#x96C6;&#x5408;&#x4E2D;&#x5220;&#x9664;&#x6B64;&#x5143;&#x7D20;
+console.log(books.size);
+console.log(books.has(&apos;js&apos;));
+books.clear();//&#x6E05;&#x7A7A; set
+console.log(books.size);
+</code></pre><h2 id="t5010.2 Map">10.2 Map <a href="#t5010.2 Map"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Map &#x6765;&#x7EC4;&#x7EC7;&#x8FD9;&#x79CD;&#x540D;&#x503C;&#x5BF9;&#x7684;&#x6570;&#x636E;</p>
+<pre><code>var books = new Map();
+books.set(&apos;js&apos;,{name:&apos;js&apos;});//&#x5411;map&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;
+books.set(&apos;html&apos;,{name:&apos;html&apos;});
+console.log(books.size);//&#x67E5;&#x770B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;
+console.log(books.get(&apos;js&apos;));//&#x901A;&#x8FC7;key&#x83B7;&#x53D6;&#x503C;
+books.delete(&apos;js&apos;);//&#x6267;&#x7167;key&#x5220;&#x9664;&#x5143;&#x7D20;
+console.log(books.has(&apos;js&apos;));//&#x5224;&#x65AD;map&#x4E2D;&#x6709;&#x6CA1;&#x6709;key
+books.forEach((value, key) =&gt; { //forEach&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;map
+    console.log( key + &apos; = &apos; + value);
+});
+books.clear();//&#x6E05;&#x7A7A;map
+
+&#x6253;&#x5370;books&#x7ED3;&#x679C;&#x662F;Map {&quot;js&quot; =&gt; Object {name: &quot;js&quot;}, &quot;html&quot; =&gt; Object {name: &quot;html&quot;}}
+</code></pre><h1 id="t5111 &#x6A21;&#x5757;">11 &#x6A21;&#x5757; <a href="#t5111 &#x6A21;&#x5757;"> # </a></h1>
+<h2 id="t5211.1 &#x5BFC;&#x51FA;&#x548C;&#x5BFC;&#x5165;">11.1 &#x5BFC;&#x51FA;&#x548C;&#x5BFC;&#x5165; <a href="#t5211.1 &#x5BFC;&#x51FA;&#x548C;&#x5BFC;&#x5165;"> # </a></h2>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;&#x6A21;&#x5757;&#x9700;&#x8981;&#x501F;&#x52A9; &#x5BFC;&#x51FA;</p>
+<pre><code>export var name = &apos;zfpx&apos;;
+export var age = 8;
+&#x5BFC;&#x5165;
+
+//import {name,age} from &apos;./school.js&apos;;
+import * as school from &apos;./school.js&apos;;
+console.log(school.name,school.age);
+</code></pre><h2 id="t5311.2 &#x91CD;&#x547D;&#x540D;">11.2 &#x91CD;&#x547D;&#x540D; <a href="#t5311.2 &#x91CD;&#x547D;&#x540D;"> # </a></h2>
+<p>&#x5BFC;&#x51FA;&#x65F6;&#x91CD;&#x547D;&#x540D;</p>
+<pre><code>function say(){
+    console.log(&apos;say&apos;);
+}
+export {say as say2};
+&#x5BFC;&#x5165;&#x65F6;&#x91CD;&#x547D;&#x540D;
+
+import {say2 as say3} from &apos;./school.js&apos;;
+</code></pre><h2 id="t5411.3 &#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;">11.3 &#x9ED8;&#x8BA4;&#x5BFC;&#x51FA; <a href="#t5411.3 &#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;"> # </a></h2>
+<p>&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x8981;&#x5BFC;&#x51FA;&#x7684;&#x4E1C;&#x897F; &#x5BFC;&#x51FA;</p>
+<pre><code>export default function say(){
+    console.log(&apos;say&apos;);
+}
+&#x5BFC;&#x5165;
+
+import say from &apos;./school.js&apos;;
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
